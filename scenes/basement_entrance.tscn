@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://textures/1floor/kitchen_corridor.png" type="Texture" id=1]
+[ext_resource path="res://scenes/characters/main_character.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/1floor/basement_entrance.gd" type="Script" id=3]
+[ext_resource path="res://addons/JitterFreePixelArt.shader" type="Shader" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 4 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8.56091, 1.44121 )
+
+[node name="basement_entrance" type="Node"]
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -5695.54
+margin_top = -3211.18
+margin_right = 7188.46
+margin_bottom = 4017.82
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 1 )
+texture = ExtResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/StaticBody2D"]
+polygon = PoolVector2Array( -104.962, -163.453, -54.6244, -163.727, -55.0348, 49.5227, -55.8556, 103.006, 70.8082, 103.006, 71.0818, 90.9688, 88.5904, 90.9688, 88.3168, 102.596, 103.91, 102.869, 103.5, 158.131, -103.768, 158.346, -103.867, -162.222, -197.754, -54.5286, -180.588, 252.056, 286.619, 135.535, 41.2511, -162.492, -154.46, -215.153 )
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 27.0844, 115.799 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 80.6185, 102.136 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -0.990303, -0.52227 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

@@ -1,0 +1,192 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://scenes/characters/main_character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/JitterFreePixelArt.shader" type="Shader" id=2]
+[ext_resource path="res://scenes/cutscenes/char_name.tscn" type="PackedScene" id=3]
+[ext_resource path="res://textures/2floor/hall_2floor.png" type="Texture" id=13]
+[ext_resource path="res://textures/2floor/rails_06.png" type="Texture" id=15]
+[ext_resource path="res://textures/2floor/rails_03.png" type="Texture" id=16]
+[ext_resource path="res://scripts/2floor/hall_2f.gd" type="Script" id=17]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 2 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 20, 1.28513 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 8.6022, 1.58014 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 1.61423, 12.7849 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 1.54004, 12.7986 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 1.17426, 12.8548 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 2.12488, 12.8425 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 1.86243, 19.9139 )
+
+[sub_resource type="ShaderMaterial" id=10]
+shader = ExtResource( 2 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 18, 1 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 27, 3 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 27, 2 )
+
+[node name="Node" type="Node"]
+script = ExtResource( 17 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -3910.02
+margin_top = -1837.75
+margin_right = 6231.98
+margin_bottom = 4053.25
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( 547.083, 320.104 )
+texture = ExtResource( 13 )
+
+[node name="walls" type="StaticBody2D" parent="Sprite"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/walls"]
+position = Vector2( -2.02429, -5.33676 )
+polygon = PoolVector2Array( 82.9864, -319.197, 83.0821, -232.751, 88.9431, -232.8, 89.0487, -192.136, 83.035, -192.184, 83.035, -106.184, 143.989, -106.184, 144.053, -59.2685, 149.889, -59.4372, 149.987, -33.1225, 144.021, -33.1544, 144.261, 278.805, 144.085, 316.697, 150.019, 316.825, 150.051, 342.811, 144.037, 342.843, 144.005, 363.804, -134.986, 363.836, -135.002, 342.891, -141.054, 342.826, -140.968, 316.777, -135.018, 316.729, -134.954, 210.422, -167.789, 307.778, -151.162, 368.333, 150.664, 394.595, 167.227, 355.646, 169.588, 279.449, 178.29, -135.487, 109.002, -204.828, 125.748, -322.788, -9.32684, -339.167, -58.8298, -314.875, -178.814, -149.436, -177.456, -16.1217, -134.97, 210.263, -134.902, -23.14, -140.988, -23.1962, -140.932, -49.2226, -135.07, -49.2506, -134.986, -145.195, -91.8238, -145.223, -91.5434, -155.235, -74.772, -155.908, -74.0148, -145.335, -33.9765, -145.108, -33.9286, -319.165 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Sprite/walls"]
+position = Vector2( 16.1722, -1.71936 )
+polygon = PoolVector2Array( -63.0222, 293.183, -62.4915, 219.49, 29.8596, 219.078, 30.0055, 293.638, 4.42126, 293.638, 6.24915, 299.413, 6.54156, 301.314, 5.81061, 302.337, 6.5415, 306.869, 3.17896, 307.089, 3.39838, 301.898, 1.0592, 296.855, 0.0358887, 293.565, -0.255188, 256.615, -39.2552, 256.615, -39.1844, 294.167, -43.165, 302.557, -42.434, 306.942, -46.0158, 306.869, -45.1289, 302.426, -45.72, 301.136, -45.5588, 298.825, -43.4094, 293.721 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Sprite/walls"]
+polygon = PoolVector2Array( -81.083, 196.896, 85.917, 195.896, 85.917, -35.104, 25.917, -35.104, 25.917, -30.104, -20.083, -30.104, -20.083, -35.104, -81.083, -35.104 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+material = SubResource( 2 )
+position = Vector2( 548.547, 400.114 )
+texture = ExtResource( 15 )
+
+[node name="1f" type="Area2D" parent="."]
+position = Vector2( 539, 281 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="1f"]
+position = Vector2( 9.99993, 5.99997 )
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="toilet_2f" type="Area2D" parent="."]
+position = Vector2( 462.972, 182.329 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="toilet_2f"]
+position = Vector2( -0.986206, -14.7146 )
+shape = SubResource( 4 )
+
+[node name="Jenny_room" type="Area2D" parent="."]
+position = Vector2( 419.63, 644.001 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jenny_room"]
+position = Vector2( -11.3208, 0.47168 )
+shape = SubResource( 5 )
+
+[node name="ben_room" type="Area2D" parent="."]
+position = Vector2( 421.05, 278.333 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ben_room"]
+position = Vector2( -12.3405, 0.273651 )
+shape = SubResource( 6 )
+
+[node name="bishop_room" type="Area2D" parent="."]
+position = Vector2( 680.213, 641.871 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bishop_room"]
+position = Vector2( 10.1415, 2.59442 )
+shape = SubResource( 7 )
+
+[node name="max_room" type="Area2D" parent="."]
+position = Vector2( 678.082, 267.683 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="max_room"]
+position = Vector2( 13.3254, 0.825439 )
+shape = SubResource( 8 )
+
+[node name="game_room" type="Area2D" parent="."]
+position = Vector2( 618.44, 97.9847 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="game_room"]
+position = Vector2( 11.9104, 4.24529 )
+shape = SubResource( 9 )
+
+[node name="player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 638, 556 )
+
+[node name="Control" parent="player" instance=ExtResource( 3 )]
+visible = false
+margin_left = -181.068
+margin_top = -105.869
+margin_right = -181.068
+margin_bottom = -105.869
+rect_scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+material = SubResource( 10 )
+position = Vector2( 544, 285 )
+texture = ExtResource( 16 )
+
+[node name="third_floor" type="Area2D" parent="."]
+position = Vector2( 544, 577 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="third_floor"]
+position = Vector2( 0, -1 )
+shape = SubResource( 11 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = -2322.0
+margin_top = 113.0
+margin_right = -1614.0
+margin_bottom = 627.0
+color = Color( 0.235294, 0.631373, 0.25098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="actions" type="Node2D" parent="."]
+position = Vector2( -2328.67, 101.81 )
+
+[node name="Area2D" type="Area2D" parent="actions"]
+position = Vector2( 24.9734, 26.1626 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="actions/Area2D"]
+position = Vector2( 2964.51, 328.099 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="actions/Area2D"]
+position = Vector2( 2741.51, 327.099 )
+shape = SubResource( 13 )
+[connection signal="body_entered" from="1f" to="." method="_on_1f_body_entered"]
+[connection signal="body_entered" from="toilet_2f" to="." method="_on_toilet_2f_body_entered"]
+[connection signal="body_entered" from="Jenny_room" to="." method="_on_Jenny_room_body_entered"]
+[connection signal="body_entered" from="ben_room" to="." method="_on_ben_room_body_entered"]
+[connection signal="body_entered" from="bishop_room" to="." method="_on_bishop_room_body_entered"]
+[connection signal="body_entered" from="max_room" to="." method="_on_max_room_body_entered"]
+[connection signal="body_entered" from="game_room" to="." method="_on_game_room_body_entered"]
+[connection signal="body_entered" from="third_floor" to="." method="_on_third_floor_body_entered"]
+[connection signal="body_entered" from="actions/Area2D" to="." method="_on_Area2D_body_entered"]

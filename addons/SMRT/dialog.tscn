@@ -1,0 +1,115 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://addons/SMRT/Message_background.png" type="Texture" id=1]
+[ext_resource path="res://addons/SMRT/dialog.gd" type="Script" id=2]
+[ext_resource path="res://addons/SMRT/next_line.png" type="Texture" id=5]
+[ext_resource path="res://addons/SMRT/typewriter key 1 sound effect from SFX WORLD HIGH QUALTIY-cq4Ab_FGUv0.wav" type="AudioStream" id=6]
+[ext_resource path="res://addons/SMRT/faces/dialog.tres" type="SpriteFrames" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Theme" id=2]
+
+[node name="NinePatchRect" type="NinePatchRect"]
+anchor_left = 0.126
+anchor_right = 0.126
+margin_left = -176.024
+margin_top = 7.0
+margin_right = 151.976
+margin_bottom = 86.0
+texture = ExtResource( 1 )
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+font_size = 29
+show_debug_messages = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_left = 1.0
+margin_top = -50.0
+margin_right = 134.0
+texture = ExtResource( 1 )
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="name" type="RichTextLabel" parent="NinePatchRect"]
+margin_left = 15.1118
+margin_top = 0.984253
+margin_right = 172.112
+margin_bottom = 48.9843
+bbcode_enabled = true
+bbcode_text = "кккк"
+text = "кккк"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="face" type="AnimatedSprite" parent="."]
+position = Vector2( -649.848, -1471.59 )
+scale = Vector2( 0.2, 0.2 )
+z_index = -1
+frames = ExtResource( 7 )
+animation = "faces"
+centered = false
+
+[node name="nextLine" type="TextureRect" parent="."]
+margin_left = 279.0
+margin_top = 30.0
+margin_right = 304.0
+margin_bottom = 51.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="nextLine"]
+anims/idle = SubResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="text_display" type="RichTextLabel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 29.0
+margin_top = 8.0
+margin_right = 21.0
+theme = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "HELLO THERE CHILDREN! How are you doing?"
+text = "HELLO THERE CHILDREN! How are you doing?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="anim" type="AnimationPlayer" parent="."]

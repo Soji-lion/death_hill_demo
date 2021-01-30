@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/click.wav-e8cab4273676bb7517e2b9123ed9e7ef.sample"
+
+[deps]
+
+source_file="res://addons/SMRT/examples/click.wav"
+dest_files=[ "res://.import/click.wav-e8cab4273676bb7517e2b9123ed9e7ef.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

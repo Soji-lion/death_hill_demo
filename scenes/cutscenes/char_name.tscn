@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/Game_font.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/cutscenes/char_name.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 29
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -205.0
+margin_bottom = -111.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 48.0
+margin_top = 44.0
+margin_right = 771.0
+margin_bottom = 444.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect"]
+margin_left = 168.427
+margin_top = 30.1995
+margin_right = 496.427
+margin_bottom = 81.1995
+custom_fonts/font = SubResource( 1 )
+text = "What will be your name?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="name" type="TextEdit" parent="ColorRect"]
+margin_left = 152.698
+margin_top = 148.085
+margin_right = 471.698
+margin_bottom = 185.085
+custom_fonts/font = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="ColorRect"]
+margin_left = 204.79
+margin_top = 257.952
+margin_right = 387.79
+margin_bottom = 302.952
+custom_fonts/font = SubResource( 3 )
+text = "Save name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="ColorRect/Button" to="." method="_on_Button_pressed"]

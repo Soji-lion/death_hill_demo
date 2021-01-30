@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://textures/2floor/jenny's_room.png" type="Texture" id=1]
+[ext_resource path="res://scenes/characters/main_character.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/2floor/jenny_room.gd" type="Script" id=3]
+[ext_resource path="res://addons/JitterFreePixelArt.shader" type="Shader" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 4 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 2.24512, 12.7923 )
+
+[node name="jenny_room" type="Node"]
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -583.955
+margin_top = -418.0
+margin_right = 1584.05
+margin_bottom = 941.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( 291.077, 242.564 )
+texture = ExtResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/StaticBody2D"]
+polygon = PoolVector2Array( -106.051, -86.5788, 99.9737, -86.4874, 100.02, 79.4928, 105.959, 79.4928, 105.959, 105.557, 100.02, 105.511, 99.9966, 125.454, -106.005, 125.522, -106.028, -86.3279, -106.805, -88.4295, -179.954, 134.094, 154.61, 132.559, 136.577, -92.6576, -106.12, -92.4038 )
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 357.783, 313.464 )
+
+[node name="hall" type="Area2D" parent="."]
+position = Vector2( 384.74, 336.039 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hall"]
+position = Vector2( 8.62634, -1.03519 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="hall" to="." method="_on_hall_body_entered"]

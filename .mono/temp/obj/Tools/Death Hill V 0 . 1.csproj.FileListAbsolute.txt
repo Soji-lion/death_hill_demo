@@ -1,0 +1,6 @@
+C:\Users\1\Desktop\Godot projects\Death_Hill_v0.1\.mono\temp\bin\Tools\Death Hill V 0 . 1.dll
+C:\Users\1\Desktop\Godot projects\Death_Hill_v0.1\.mono\temp\bin\Tools\Death Hill V 0 . 1.pdb
+C:\Users\1\Desktop\Godot projects\Death_Hill_v0.1\.mono\temp\obj\Tools\Death Hill V 0 . 1.csprojAssemblyReference.cache
+C:\Users\1\Desktop\Godot projects\Death_Hill_v0.1\.mono\temp\obj\Tools\Death Hill V 0 . 1.csproj.CoreCompileInputs.cache
+C:\Users\1\Desktop\Godot projects\Death_Hill_v0.1\.mono\temp\obj\Tools\Death Hill V 0 . 1.dll
+C:\Users\1\Desktop\Godot projects\Death_Hill_v0.1\.mono\temp\obj\Tools\Death Hill V 0 . 1.pdb

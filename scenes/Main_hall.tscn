@@ -1,0 +1,163 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://scenes/characters/main_character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://textures/1floor/hall.png" type="Texture" id=2]
+[ext_resource path="res://scripts/1floor/main_hall.gd" type="Script" id=3]
+[ext_resource path="res://addons/JitterFreePixelArt.shader" type="Shader" id=4]
+[ext_resource path="res://textures/1floor/stairs.png" type="Texture" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 4 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 4 )
+
+[sub_resource type="PhysicsMaterial" id=3]
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 17.7212, 1.6796 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 18.083, 1.9482 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 7.9239, 1.61579 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 14.4453, 0.91256 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 2.84587, 23.5033 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 14.6632, 1.95474 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 8.04913, 1.20258 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 2.37111, 12.5289 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 1.8246, 12.8052 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 3.58009, 2.88159 )
+
+[node name="node" type="Node"]
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -894.0
+margin_top = -652.0
+margin_right = 1104.0
+margin_bottom = 652.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hall" type="Sprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( 17, 50 )
+texture = ExtResource( 2 )
+
+[node name="stairs" type="Sprite" parent="hall"]
+material = SubResource( 2 )
+position = Vector2( 2, -206 )
+texture = ExtResource( 5 )
+
+[node name="walls" type="StaticBody2D" parent="hall"]
+position = Vector2( -75.366, -63.0155 )
+physics_material_override = SubResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hall/walls"]
+position = Vector2( -1.68948, -70.3273 )
+polygon = PoolVector2Array( -88.5198, -62.3378, -22.9021, -62.54, -22.9021, -70.7296, -6.42184, -70.123, -6.21963, -62.4389, 55.7458, -62.2931, 55.0878, -55.958, 52.2555, -50.9696, 52.0555, -43.6572, 56.0555, -43.6572, 56.0306, -47.0524, 57.0555, -50.6572, 59.0555, -53.6572, 59.0555, -56.6572, 60.0555, -92.6572, 98.6551, -92.8917, 98.4986, -56.9824, 101.055, -51.6572, 101.055, -43.6572, 106.055, -43.6572, 106.055, -51.6572, 103.055, -56.6572, 102.055, -62.6572, 164.812, -62.609, 165.055, -72.6572, 182.055, -72.6572, 182.055, -62.6572, 246.009, -62.1844, 246.073, -24.3973, 252.08, -24.3246, 252.171, 1.77239, 246.137, 1.60131, 246.012, 98.9948, 252.429, 99.6364, 253.231, 125.946, 246.972, 126.337, 246.35, 186.046, 201.153, 186.253, 200.946, 191.851, 170.172, 191.443, 170.172, 186.718, 97.0199, 186.414, 96.9726, 362.213, 74.2674, 361.981, 74.5135, 367.785, 38.1904, 367.099, 38.0257, 361.994, 16.8389, 362.231, 16.9828, 248.97, -3.66299, 248.797, -3.66299, 253.628, -34.1143, 253.948, -34.1752, 249.017, -88.6565, 249.135, -89.0818, 140.964, -97.9465, 140.801, -97.8485, 92.2574, -88.951, 92.192, -89.5301, -62.0316, -94.3415, -35.52, -176.836, 65.4178, -164.618, 276.938, -23.482, 406.577, 133.492, 420.561, 372.287, 215.127, 324.033, -47.1914, 292.276, -116.04, 56.0678, -179.385, -106.618, -110.161 )
+
+[node name="character" parent="." instance=ExtResource( 1 )]
+position = Vector2( 22.9612, 2.18521 )
+
+[node name="exit" type="Area2D" parent="."]
+position = Vector2( -4.67592, 274.87 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exit"]
+position = Vector2( 0.8607, 6.05547 )
+shape = SubResource( 4 )
+
+[node name="2nd_floor" type="Area2D" parent="."]
+position = Vector2( 14.7774, -170.961 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="2nd_floor"]
+position = Vector2( 4.10085, -2.51286 )
+shape = SubResource( 5 )
+
+[node name="kitchen_door" type="Area2D" parent="."]
+position = Vector2( -77.0238, -145.362 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kitchen_door"]
+position = Vector2( 2.44693, -1.89413 )
+shape = SubResource( 6 )
+
+[node name="tea_room_door" type="Area2D" parent="."]
+position = Vector2( 123.941, 107.044 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tea_room_door"]
+position = Vector2( 1.21269, -1.96605 )
+shape = SubResource( 7 )
+
+[node name="lunch_room_door" type="Area2D" parent="."]
+position = Vector2( -147.884, 30.965 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lunch_room_door"]
+position = Vector2( -4.2716, 2.34714 )
+shape = SubResource( 8 )
+
+[node name="clothes_door" type="Area2D" parent="."]
+position = Vector2( -81.0947, 164.203 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="clothes_door"]
+position = Vector2( 2.07453, 3.72359 )
+shape = SubResource( 9 )
+
+[node name="workRoom_door" type="Area2D" parent="."]
+position = Vector2( 108.227, -144.904 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="workRoom_door"]
+position = Vector2( 5.14125, -2.13317 )
+shape = SubResource( 10 )
+
+[node name="library" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="library"]
+position = Vector2( 189.031, 29.2049 )
+shape = SubResource( 11 )
+
+[node name="toilet" type="Area2D" parent="."]
+position = Vector2( 184.432, -93.6742 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="toilet"]
+position = Vector2( 4.07822, -1.147 )
+shape = SubResource( 12 )
+
+[node name="main_secret" type="Area2D" parent="."]
+position = Vector2( -10.6251, -142.955 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="main_secret"]
+position = Vector2( 1.8041, 0.38263 )
+shape = SubResource( 13 )
+[connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]
+[connection signal="body_entered" from="2nd_floor" to="." method="_on_2nd_floor_body_entered"]
+[connection signal="body_entered" from="kitchen_door" to="." method="_on_kitchen_door_body_entered"]
+[connection signal="body_entered" from="tea_room_door" to="." method="_on_tea_room_door_body_entered"]
+[connection signal="body_entered" from="lunch_room_door" to="." method="_on_lunch_room_door_body_entered"]
+[connection signal="body_entered" from="clothes_door" to="." method="_on_clothes_door_body_entered"]
+[connection signal="body_entered" from="workRoom_door" to="." method="_on_workRoom_door_body_entered"]
+[connection signal="body_entered" from="library" to="." method="_on_library_body_entered"]
+[connection signal="body_entered" from="toilet" to="." method="_on_toilet_body_entered"]
+[connection signal="body_entered" from="main_secret" to="." method="_on_main_secret_body_entered"]
+[connection signal="body_exited" from="main_secret" to="." method="_on_main_secret_body_exited"]

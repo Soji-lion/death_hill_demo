@@ -439,11 +439,12 @@ func question(answer_array):
 		b.add_font_override("font_selected", font)
 		btn_answers.add_child(b)
 		b.connect("pressed",self,"selected_answer",[index])
-		if index > 0:
-			var last_child = btn_answers.get_child(index-1)
-			b.set_focus_neighbour(MARGIN_TOP,last_child.get_path())
-			btn_answers.rect_size.y += b.rect_size
-			index+=1
+#		if index > 0:
+#			var last_child = btn_answers.get_child(index-1)
+#			b.set_focus_neighbour(MARGIN_TOP,last_child.get_path())
+#			btn_answers.rect_size.y += b.rect_size
+	#		index+=1
+		index+=1
 	
 	yield(get_tree(),"idle_frame")
 	btn_answers.get_children()[0].grab_focus()
@@ -456,6 +457,7 @@ func selected_answer(btn):
 	if show_debug_messages:
 		print("Answer selected: ", btn)
 	answer_number = btn
+	Global.selected_option = answer_number
 	info.answer = answer_number
 	answer_number = null
 	emit_signal("dialog_control", info)

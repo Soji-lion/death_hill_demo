@@ -20,6 +20,13 @@ func _process(delta):
 		get_node("player").speed=0
 		SPEAK.show_text("intro","richard_storm", 0)
 		#SPEAK.show_text("1","toilet",0)
+	if Global.selected_option == 1:
+		SPEAK.show_text("intro", "isaac_follow_me", 0)
+		Global.selected_option = -1
+	elif Global.selected_option == 2:
+		pass
+	elif Global.selected_option ==3:
+		pass
 	pass
 
 

@@ -70,14 +70,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="face" type="AnimatedSprite" parent="."]
-position = Vector2( -649.848, -1471.59 )
-scale = Vector2( 0.2, 0.2 )
-z_index = -1
-frames = ExtResource( 7 )
-animation = "faces"
-centered = false
-
 [node name="nextLine" type="TextureRect" parent="."]
 margin_left = 279.0
 margin_top = 30.0
@@ -113,3 +105,11 @@ __meta__ = {
 }
 
 [node name="anim" type="AnimationPlayer" parent="."]
+
+[node name="face" type="AnimatedSprite" parent="."]
+position = Vector2( -11.624, -833.234 )
+scale = Vector2( 0.2, 0.2 )
+z_index = -1
+frames = ExtResource( 7 )
+animation = "faces"
+centered = false

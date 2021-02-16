@@ -83,6 +83,9 @@ onready var question = get_node("VBoxContainer/question")
 onready var choicesNumber = get_node("VBoxContainer/question/VBoxContainer/choicesNumber")
 onready var options = question.get_node("VBoxContainer/GridContainer")
 onready var option = options.get_child(0).duplicate()
+onready var branches = question.get_node("VBoxContainer/HBoxContainer")
+onready var branch = branches.get_child(0).duplicate()
+
 onready var char_name = get_node("VBoxContainer/HBoxContainer/GridContainer/other/LineEdit")
 var messages
 # Global vars
@@ -93,6 +96,8 @@ var currentText
 var language_file
 var timer
 var answers
+
+var results
 
 var input_tscn=preload("res://addons/SMRT/modals/input.tscn")
 var old_text
@@ -549,6 +554,7 @@ func manageQuestionOptions(value):
 	if currentChapter != null and currentDialog != null and currentText != null:
 		if enableQuestion.is_pressed():
 			contents[currentChapter][currentDialog][currentText].answers.resize(value)
+			contents[currentChapter][currentDialog][currentText].results.resize(value)
 			print("ARRAY WITH ANSWERS: ",contents[currentChapter][currentDialog][currentText].answers)
 
 func _exit_tree():
@@ -582,10 +588,13 @@ func agregate(text_id):
 	text.char_name = char_name.get_text()
 	if enableQuestion.get("pressed"):
 		text.answers.resize(choicesNumber.get_value())
+		text.results.resize(choicesNumber.get_value())
 		for i in range(choicesNumber.get_value()):
 			text.answers[i] = options.get_child(i).find_node("LineEdit").get_text()
+			text.results[i] = branches.get_child(i).find_node("LineEdit").get_text()
 	else:
 		text.answers = []
+		text.results = []
 
 func populate(text_id):
 #	Gives the editor items the respective values based on the save
@@ -604,6 +613,7 @@ func populate(text_id):
 	enableQuestion.set("pressed", contents[currentChapter][currentDialog][text_id].enable_question)
 	
 	answers = contents[currentChapter][currentDialog][text_id].answers
+	results = contents[currentChapter][currentDialog][text_id].results
 	choicesNumber.set("value", answers.size())
 	print("setting answers size")
 	if choicesNumber.get("value") == 0:
@@ -611,10 +621,16 @@ func populate(text_id):
 	for i in options.get_children():
 		print("cleaning option ", i.get_index())
 		i.find_node("LineEdit").set_text("")
+	for n in branches.get_children():
+		if (n.get_index()!=4):
+			print ("cleaning results ", n.get_index())
+			n.find_node("LineEdit").set_text("")
 	if enableQuestion.get("pressed") and typeof(answers) == TYPE_ARRAY:
 		for i in range(answers.size()):
 			print("setting option ", i)
 			options.get_child(i).find_node("LineEdit").set_text(answers[i])
+		for i in range(results.size()):
+			branches.get_child(i).find_node("LineEdit").set_text(results[i])
 
 
 func selectedTextButtons(btn_index):

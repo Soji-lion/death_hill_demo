@@ -36,9 +36,8 @@ font_data = ExtResource( 2 )
 font_data = ExtResource( 2 )
 
 [node name="WindowDialog" type="WindowDialog"]
-visible = true
-margin_right = 800.0
-margin_bottom = 680.0
+margin_right = 799.0
+margin_bottom = 725.0
 custom_fonts/title_font = SubResource( 1 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -56,18 +55,18 @@ __meta__ = {
 }
 
 [node name="messages" type="Label" parent="VBoxContainer"]
-margin_right = 784.0
+margin_right = 783.0
 margin_bottom = 14.0
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
 margin_top = 18.0
-margin_right = 784.0
+margin_right = 783.0
 margin_bottom = 64.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 777.0
+margin_right = 776.0
 margin_bottom = 39.0
 rect_min_size = Vector2( 0, 32 )
 
@@ -115,7 +114,7 @@ flat = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 68.0
-margin_right = 784.0
+margin_right = 783.0
 margin_bottom = 398.0
 
 [node name="ChapterContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
@@ -301,7 +300,7 @@ margin_bottom = 330.0
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer"]
 margin_left = 359.0
-margin_right = 624.0
+margin_right = 640.0
 margin_bottom = 330.0
 columns = 2
 
@@ -331,24 +330,24 @@ selected = 0
 
 [node name="Face" type="PanelContainer" parent="VBoxContainer/HBoxContainer/GridContainer"]
 margin_left = 165.0
-margin_right = 265.0
+margin_right = 281.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 100, 0 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/GridContainer/Face"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 93.0
+margin_right = 109.0
 margin_bottom = 73.0
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/GridContainer/Face/VBoxContainer"]
-margin_right = 86.0
+margin_right = 102.0
 margin_bottom = 14.0
 text = "Face"
 
 [node name="side" type="OptionButton" parent="VBoxContainer/HBoxContainer/GridContainer/Face/VBoxContainer"]
 margin_top = 18.0
-margin_right = 86.0
+margin_right = 102.0
 margin_bottom = 38.0
 toggle_mode = false
 text = "None"
@@ -357,7 +356,7 @@ selected = 0
 
 [node name="FaceFrame" type="SpinBox" parent="VBoxContainer/HBoxContainer/GridContainer/Face/VBoxContainer"]
 margin_top = 42.0
-margin_right = 86.0
+margin_right = 102.0
 margin_bottom = 66.0
 prefix = "Frame"
 
@@ -416,29 +415,46 @@ prefix = "Pitch"
 [node name="other" type="PanelContainer" parent="VBoxContainer/HBoxContainer/GridContainer"]
 margin_left = 165.0
 margin_top = 84.0
-margin_right = 265.0
+margin_right = 281.0
 margin_bottom = 238.0
+size_flags_horizontal = 7
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/GridContainer/other"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 109.0
+margin_bottom = 147.0
+size_flags_vertical = 1
+text = "Character Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/GridContainer/other"]
 margin_left = 7.0
-margin_top = 7.0
-margin_right = 93.0
-margin_bottom = 147.0
+margin_top = 63.0
+margin_right = 109.0
+margin_bottom = 90.0
+rect_pivot_offset = Vector2( 0, -30 )
+size_flags_vertical = 4
 custom_fonts/font = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TextPanel" type="PanelContainer" parent="VBoxContainer"]
 margin_top = 402.0
-margin_right = 784.0
+margin_right = 783.0
 margin_bottom = 534.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TextPanel"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 777.0
+margin_right = 776.0
 margin_bottom = 125.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TextPanel/VBoxContainer"]
-margin_right = 770.0
+margin_right = 769.0
 margin_bottom = 14.0
 
 [node name="Label" type="Label" parent="VBoxContainer/TextPanel/VBoxContainer/HBoxContainer"]
@@ -448,7 +464,7 @@ text = "Text"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/TextPanel/VBoxContainer"]
 margin_top = 18.0
-margin_right = 770.0
+margin_right = 769.0
 margin_bottom = 118.0
 
 [node name="TextEdit" type="TextEdit" parent="VBoxContainer/TextPanel/VBoxContainer/HBoxContainer2"]
@@ -466,23 +482,23 @@ text = "Next"
 
 [node name="CheckButton" type="CheckButton" parent="VBoxContainer"]
 margin_top = 538.0
-margin_right = 784.0
+margin_right = 783.0
 margin_bottom = 578.0
 text = "Question"
 
 [node name="question" type="PanelContainer" parent="VBoxContainer"]
 margin_top = 582.0
-margin_right = 784.0
-margin_bottom = 669.0
+margin_right = 783.0
+margin_bottom = 715.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/question"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 777.0
-margin_bottom = 80.0
+margin_right = 776.0
+margin_bottom = 126.0
 
 [node name="choicesNumber" type="SpinBox" parent="VBoxContainer/question/VBoxContainer"]
-margin_right = 770.0
+margin_right = 769.0
 margin_bottom = 24.0
 min_value = 1.0
 max_value = 4.0
@@ -492,7 +508,7 @@ suffix = "/4"
 
 [node name="GridContainer" type="HBoxContainer" parent="VBoxContainer/question/VBoxContainer"]
 margin_top = 28.0
-margin_right = 770.0
+margin_right = 769.0
 margin_bottom = 73.0
 
 [node name="Option" type="VBoxContainer" parent="VBoxContainer/question/VBoxContainer/GridContainer"]
@@ -557,3 +573,85 @@ margin_top = 18.0
 margin_right = 97.0
 margin_bottom = 45.0
 custom_fonts/font = SubResource( 11 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/question/VBoxContainer"]
+margin_top = 77.0
+margin_right = 769.0
+margin_bottom = 119.0
+
+[node name="branch1" type="VBoxContainer" parent="VBoxContainer/question/VBoxContainer/HBoxContainer"]
+margin_right = 96.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.45
+
+[node name="Label" type="Label" parent="VBoxContainer/question/VBoxContainer/HBoxContainer/branch1"]
+margin_right = 96.0
+margin_bottom = 14.0
+text = "do this"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/question/VBoxContainer/HBoxContainer/branch1"]
+margin_top = 18.0
+margin_right = 96.0
+margin_bottom = 42.0
+
+[node name="branch2" type="VBoxContainer" parent="VBoxContainer/question/VBoxContainer/HBoxContainer"]
+margin_left = 100.0
+margin_right = 197.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.45
+
+[node name="Label2" type="Label" parent="VBoxContainer/question/VBoxContainer/HBoxContainer/branch2"]
+margin_right = 97.0
+margin_bottom = 14.0
+text = "do this"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/question/VBoxContainer/HBoxContainer/branch2"]
+margin_top = 18.0
+margin_right = 97.0
+margin_bottom = 42.0
+
+[node name="branch3" type="VBoxContainer" parent="VBoxContainer/question/VBoxContainer/HBoxContainer"]
+margin_left = 201.0
+margin_right = 298.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.45
+
+[node name="Label3" type="Label" parent="VBoxContainer/question/VBoxContainer/HBoxContainer/branch3"]
+margin_right = 97.0
+margin_bottom = 14.0
+text = "do this"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/question/VBoxContainer/HBoxContainer/branch3"]
+margin_top = 18.0
+margin_right = 97.0
+margin_bottom = 42.0
+
+[node name="branch4" type="VBoxContainer" parent="VBoxContainer/question/VBoxContainer/HBoxContainer"]
+margin_left = 302.0
+margin_right = 399.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.45
+
+[node name="Label4" type="Label" parent="VBoxContainer/question/VBoxContainer/HBoxContainer/branch4"]
+margin_right = 97.0
+margin_bottom = 14.0
+text = "do this"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/question/VBoxContainer/HBoxContainer/branch4"]
+margin_top = 18.0
+margin_right = 97.0
+margin_bottom = 42.0
+
+[node name="Control" type="Control" parent="VBoxContainer/question/VBoxContainer/HBoxContainer"]
+margin_left = 403.0
+margin_right = 403.0
+margin_bottom = 42.0
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 1.7

@@ -33,6 +33,7 @@ var side = null
 var TOP
 var MIDDLE
 var BOTTOM
+var chapter_for_options
 
 # EXPORTED VARS =====>
 export (AudioStreamSample) var beep_WAV = preload("res://addons/SMRT/beep_letter.wav")
@@ -78,6 +79,7 @@ var black_screen
 var texture_width
 var texture_height
 var dialog_array
+var results
 #THE NEXT VAR IS SENT THROUGH THE SIGNALS dialog_control 
 #AND answer_selected
 var info = {chapter = null, dialog = null, last_text_index = null, total_text = null, answer = null}
@@ -141,6 +143,7 @@ func reset():
 	position= null
 	side = null
 	answer_number = null
+	chapter_for_options = null
 	textObj.bbcode_enabled = true
 	textObj.bbcode_text = ""
 	dialog_array = []
@@ -266,6 +269,8 @@ func show_text(chapter, dialog, start_at = 0):
 			enable_question = dialog_array[start_at].enable_question
 			if dialog_array[start_at].has("answers"):
 				answers = dialog_array[start_at].answers
+			if dialog_array[start_at].has("results"):
+				results = dialog_array[start_at].results
 		# face frame and face position
 		if dialog_array[start_at].has("face_frame"):
 			if typeof(dialog_array[start_at].face_frame) == TYPE_REAL or typeof(dialog_array[start_at].face_position) == TYPE_INT:
@@ -381,6 +386,8 @@ func show_text(chapter, dialog, start_at = 0):
 			info.last_text_index = start_at
 			yield(self,"dialog_control")
 			if enable_question:
+				chapter_for_options = chapter
+				print (chapter_for_options)
 				question(answers)
 				start_at +=1
 				yield(self, "answer_selected")
@@ -453,10 +460,18 @@ func question(answer_array):
 	dialog_dup.visible = true
 	dialog_dup.rect_size = btn_answers.rect_size
 
+func answer_response(ans_id):
+	var res = results[ans_id]
+	print(res)
+	show_text(chapter_for_options,res)
+	pass
+
 func selected_answer(btn):
+	var temp
 	if show_debug_messages:
 		print("Answer selected: ", btn)
 	answer_number = btn
+	temp=answer_number
 	Global.selected_option = answer_number
 	info.answer = answer_number
 	answer_number = null
@@ -464,6 +479,7 @@ func selected_answer(btn):
 	emit_signal("answer_selected")
 	dialog_dup.queue_free()
 	info.answer = null
+	answer_response(temp)      #			workhere
 	
 func _input(event):
 	

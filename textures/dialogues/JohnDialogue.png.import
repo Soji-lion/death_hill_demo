@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/JohnDialogue.png-133f6f36f4c8ffb586e51eda28e02fa8.stex"
+path="res://.import/johndialogue.png-1629f96fa4cfca74060699b84dc01928.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/dialogues/JohnDialogue.png"
-dest_files=[ "res://.import/JohnDialogue.png-133f6f36f4c8ffb586e51eda28e02fa8.stex" ]
+source_file="res://textures/dialogues/johndialogue.png"
+dest_files=[ "res://.import/johndialogue.png-1629f96fa4cfca74060699b84dc01928.stex" ]
 
 [params]
 
@@ -22,7 +22,7 @@ compress/normal_map=0
 flags/repeat=0
 flags/filter=true
 flags/mipmaps=false
-flags/anisotropic=false
+flags/anisotropic=true
 flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false

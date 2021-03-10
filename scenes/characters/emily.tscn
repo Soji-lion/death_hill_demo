@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://textures/characters/Emily/emily_left_3.png" type="Texture" id=1]
 [ext_resource path="res://textures/characters/Emily/emily_front_3.png" type="Texture" id=2]
@@ -15,17 +15,68 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 1 ) ],
 "loop": true,
-"name": "default",
+"name": "move_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "move_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "move_right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "idle_right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 8 ), ExtResource( 12 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "move_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "idle_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "idle_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "idle_left",
 "speed": 5.0
 } ]
 
-[node name="emily" type="KinematicBody2D"]
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5.40598, 14.5766 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 6.01522, 12.9466 )
+
+[node name="emily" type="AnimatedSprite"]
+frames = SubResource( 1 )
+animation = "move_down"
+frame = 2
+playing = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 1 )
+[node name="event" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -0.353554, 0.0865812 )
+shape = SubResource( 2 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+
+[node name="border" type="CollisionShape2D" parent="KinematicBody2D"]
+shape = SubResource( 3 )

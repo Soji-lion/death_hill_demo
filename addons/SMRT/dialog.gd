@@ -228,6 +228,7 @@ func show_text(chapter, dialog, start_at = 0):
 				return
 	if show_debug_messages:
 		print("Starting the dialog system")
+	
 	on_dialog = true
 	if not visible:
 		visible = true
@@ -251,6 +252,7 @@ func show_text(chapter, dialog, start_at = 0):
 #	A while loop that goes over each array value inside of dialog_array 
 #	based on the start_at parameter
 	while on_dialog and start_at < dialog_array.size():
+		Global.is_in_dialogue=true
 		emit_signal("started")
 		textObj.add_font_override("normal_font", font)
 		
@@ -403,6 +405,7 @@ func show_text(chapter, dialog, start_at = 0):
 		finished_dialog=true
 	emit_signal("finished_dialog")
 	beep_pitch = 1.0
+	Global.is_in_dialogue=false
 	visible = false
 
 func question(answer_array):

@@ -46,6 +46,7 @@ extents = Vector2( 1.8246, 12.8052 )
 extents = Vector2( 3.58009, 2.88159 )
 
 [node name="node" type="Node"]
+pause_mode = 1
 script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="."]

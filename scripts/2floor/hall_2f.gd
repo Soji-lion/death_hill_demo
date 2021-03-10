@@ -8,6 +8,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	if Global.room=="main_hall":
 		get_node("player").position=Vector2(550.418, 268.871)
 	elif Global.room=="toilet_2f":
@@ -27,7 +28,12 @@ func _ready():
 	#if Global.progress = "awake":
 		
 	Global.room="hall2f"
-
+	
+	if Global.progress=="awake":
+		start_emily_meeting()
+#					Not needed
+	#else:
+#		get_node("emily").position = Vector2(1086.286,-16.819) 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,8 +41,29 @@ func _process(delta):
 	if (get_node("player/Control/ColorRect/Button").is_pressed()):
 		print (Global.char_name)
 		get_node("player/Control").hide()
-#	pass
+	
+	if get_node("player/CanvasLayer/NinePatchRect").finished_dialog:
+		if Global.speak == "intro, emily_meet":
+			get_node("invisible_event_walls/CollisionPolygon2D").position = Vector2(-1594.989,-393.23)
+			get_node("invisible_event_walls/CollisionPolygon2D2").position = Vector2(-1578.925,-384.02)
+			get_node("actions/meet_emily/CollisionShape2D").position = Vector2(1086.286,-16.819)
+			get_node("AnimationPlayer").play("emily_meet_leave")
+		elif Global.speak =="intro, isaac_meet":
+			#work here: we need to show the diary here
+			pass
+	
+	if Global.progress=="met_emily":
+		get_node("invisible_event_walls/CollisionPolygon2D").position = Vector2(11,-79.5)
+		if Global.speak =="isaac_meet":
+			get_node("player/CanvasLayer/NinePatchRect").show_text("intro","isaac_meet",0)
+			Global.progress = ""
+			Global.speak ="intro, isaac_meet"
+		#not used at the moment
+	#Global.temp_progress==Global.progress
+	pass
 
+##################
+#transition functions
 
 func _on_1f_body_entered(body):
 	SceneTransition.change_scene("res://scenes/Main_hall.tscn")
@@ -77,7 +104,39 @@ func _on_third_floor_body_entered(body):
 	pass # Replace with function body.
 
 
-func _on_Area2D_body_entered(body):
-	get_node("player/Control").show()
+####################################
+#event functions
+
+func _on_meet_emily_body_entered(body):
+	#print (body)
+	get_node("player").speed = 0
+	get_node("AnimationPlayer").play("emily_meet")
+	get_node("player/AnimatedSprite").animation="idle_up"
+	get_node("player/CanvasLayer/NinePatchRect").on_dialog=true
 	
+	#get_node("player/Control").show()
+
+
+####################################
+#chapter setup functions
+
+func start_emily_meeting():
+	get_node("invisible_event_walls/CollisionPolygon2D").position = Vector2(-3.29,11.106)
+	get_node("invisible_event_walls/CollisionPolygon2D2").position = Vector2(12.773,20.316)
+	get_node("actions/meet_emily/CollisionShape2D").position= Vector2(2741.51,327.099)
+	
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "emily_meet":
+		Global.speak = "intro, emily_meet"
+		get_node("player/CanvasLayer/NinePatchRect").show_text("intro", "emily_meet")
+		get_node("actions/meet_emily/CollisionShape2D").position= Vector2(1083.608,-53.982)
+	if anim_name == "emily_meet_leave":
+		Global.speak =""
+		Global.progress = "met_emily"
+		get_node("player").speed =80   ##Player shoud be able to move after the animation is done
+
+func _on_AnimationPlayer_animation_started(anim_name):
+	get_node("player").speed=0         ##The character chouldn't move during the animation
 	pass # Replace with function body.

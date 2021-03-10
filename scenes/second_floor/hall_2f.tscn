@@ -1,8 +1,10 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenes/characters/main_character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/JitterFreePixelArt.shader" type="Shader" id=2]
 [ext_resource path="res://scenes/cutscenes/char_name.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/characters/emily.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/characters/Isaac.tscn" type="PackedScene" id=5]
 [ext_resource path="res://textures/2floor/hall_2floor.png" type="Texture" id=13]
 [ext_resource path="res://textures/2floor/rails_06.png" type="Texture" id=15]
 [ext_resource path="res://textures/2floor/rails_03.png" type="Texture" id=16]
@@ -35,27 +37,117 @@ extents = Vector2( 2.12488, 12.8425 )
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 1.86243, 19.9139 )
 
-[sub_resource type="ShaderMaterial" id=10]
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 28.3606, 28.5665 )
+
+[sub_resource type="ShaderMaterial" id=11]
 shader = ExtResource( 2 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 18, 1 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 27, 3 )
 
-[sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 27, 2 )
+[sub_resource type="Animation" id=14]
+resource_name = "emily_meet"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("emily:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3.8, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ "move_down", "move_down", "idle_down" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("emily:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 441.9, 300 ), Vector2( 441.9, 428.05 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "emily_meet_leave"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("emily:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ "move_up", "move_up" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("emily:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 3.9, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 441.9, 428.05 ), Vector2( 441.9, 300 ), Vector2( -1229, 136 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Isaac:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "move_down", "move_down" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Isaac:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 3, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 457, 304 ), Vector2( 457, 361 ) ]
+}
 
 [node name="Node" type="Node"]
 script = ExtResource( 17 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -3910.02
-margin_top = -1837.75
-margin_right = 6231.98
-margin_bottom = 4053.25
+margin_left = -3888.07
+margin_top = -1827.01
+margin_right = 6253.93
+margin_bottom = 4063.99
 color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = -1249.5
+margin_top = 54.487
+margin_right = -541.496
+margin_bottom = 568.487
+color = Color( 0.235294, 0.631373, 0.25098, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -80,7 +172,7 @@ polygon = PoolVector2Array( -81.083, 196.896, 85.917, 195.896, 85.917, -35.104, 
 
 [node name="Sprite3" type="Sprite" parent="."]
 material = SubResource( 2 )
-position = Vector2( 548.547, 400.114 )
+position = Vector2( 548.991, 400.137 )
 texture = ExtResource( 15 )
 
 [node name="1f" type="Area2D" parent="."]
@@ -135,8 +227,44 @@ position = Vector2( 618.44, 97.9847 )
 position = Vector2( 11.9104, 4.24529 )
 shape = SubResource( 9 )
 
+[node name="emily" parent="." instance=ExtResource( 4 )]
+position = Vector2( 441.9, 428.05 )
+frame = 1
+
+[node name="Isaac" parent="." instance=ExtResource( 5 )]
+position = Vector2( 457, 361 )
+animation = "move_down"
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+margin_left = 637.0
+margin_top = 392.0
+margin_right = 688.0
+margin_bottom = 449.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect3"]
+margin_left = 4.0
+margin_top = 31.0
+margin_right = 66.0
+margin_bottom = 53.0
+rect_scale = Vector2( 0.7, 0.7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Zavaleno"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ColorRect3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect3/StaticBody2D"]
+position = Vector2( 24.1602, 28.2806 )
+shape = SubResource( 10 )
+
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 638, 556 )
+position = Vector2( 477.253, 559.913 )
 
 [node name="Control" parent="player" instance=ExtResource( 3 )]
 visible = false
@@ -147,7 +275,7 @@ margin_bottom = -105.869
 rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="Sprite2" type="Sprite" parent="."]
-material = SubResource( 10 )
+material = SubResource( 11 )
 position = Vector2( 544, 285 )
 texture = ExtResource( 16 )
 
@@ -156,31 +284,33 @@ position = Vector2( 544, 577 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="third_floor"]
 position = Vector2( 0, -1 )
-shape = SubResource( 11 )
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-margin_left = -2322.0
-margin_top = 113.0
-margin_right = -1614.0
-margin_bottom = 627.0
-color = Color( 0.235294, 0.631373, 0.25098, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+shape = SubResource( 12 )
 
 [node name="actions" type="Node2D" parent="."]
 position = Vector2( -2328.67, 101.81 )
 
-[node name="Area2D" type="Area2D" parent="actions"]
+[node name="meet_emily" type="Area2D" parent="actions"]
 position = Vector2( 24.9734, 26.1626 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="actions/Area2D"]
-position = Vector2( 2964.51, 328.099 )
-shape = SubResource( 12 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="actions/Area2D"]
-position = Vector2( 2741.51, 327.099 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="actions/meet_emily"]
+position = Vector2( 1086.29, -16.8194 )
 shape = SubResource( 13 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 2.5
+anims/emily_meet = SubResource( 14 )
+anims/emily_meet_leave = SubResource( 15 )
+
+[node name="invisible_event_walls" type="StaticBody2D" parent="."]
+position = Vector2( 436.059, 459.933 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="invisible_event_walls"]
+position = Vector2( 11.519, -76.1797 )
+polygon = PoolVector2Array( 1.78656, -1.8541, -38.0227, 64.5433, -10.1768, 0.525726, 1.85043, -7.71509 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="invisible_event_walls"]
+position = Vector2( -1578.93, -384.02 )
+polygon = PoolVector2Array( -0.643921, -9.06396, -0.635651, -15.9392, 6.30487, -6.37875, 20.782, 31.7072 )
 [connection signal="body_entered" from="1f" to="." method="_on_1f_body_entered"]
 [connection signal="body_entered" from="toilet_2f" to="." method="_on_toilet_2f_body_entered"]
 [connection signal="body_entered" from="Jenny_room" to="." method="_on_Jenny_room_body_entered"]
@@ -189,4 +319,6 @@ shape = SubResource( 13 )
 [connection signal="body_entered" from="max_room" to="." method="_on_max_room_body_entered"]
 [connection signal="body_entered" from="game_room" to="." method="_on_game_room_body_entered"]
 [connection signal="body_entered" from="third_floor" to="." method="_on_third_floor_body_entered"]
-[connection signal="body_entered" from="actions/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="actions/meet_emily" to="." method="_on_meet_emily_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://textures/characters/John/john_front_1.png" type="Texture" id=1]
 [ext_resource path="res://scripts/characters/player.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://textures/characters/John/john_back_3.png" type="Texture" id=13]
 [ext_resource path="res://addons/JitterFreePixelArt.shader" type="Shader" id=14]
 [ext_resource path="res://addons/SMRT/dialog.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/characters/interface.tscn" type="PackedScene" id=16]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 14 )
@@ -32,14 +33,9 @@ animations = [ {
 "name": "idle_right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 4 ), ExtResource( 13 ), ExtResource( 4 ) ],
 "loop": true,
-"name": "walk_left",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 1 ) ],
-"loop": true,
-"name": "walk_down",
+"name": "walk_up",
 "speed": 4.0
 }, {
 "frames": [ ExtResource( 1 ) ],
@@ -47,25 +43,30 @@ animations = [ {
 "name": "idle_down",
 "speed": 1.0
 }, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "idle_up",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "walk_right",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "walk_down",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "walk_left",
 "speed": 4.0
 }, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "idle_left",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "idle_up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ), ExtResource( 4 ), ExtResource( 13 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "walk_up",
-"speed": 4.0
 } ]
 
 [node name="player" type="KinematicBody2D"]
@@ -93,6 +94,7 @@ animation = "walk_right"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="NinePatchRect" parent="CanvasLayer" instance=ExtResource( 15 )]
+pause_mode = 2
 visible = false
 anchor_right = 0.5
 anchor_bottom = 0.5
@@ -101,5 +103,20 @@ margin_top = 17.0
 margin_right = -387.0
 margin_bottom = -220.0
 font_size = 40
+
+[node name="interface" parent="." instance=ExtResource( 16 )]
+visible = false
+margin_left = -155.337
+margin_top = -86.209
+margin_right = -155.337
+margin_bottom = -86.209
+
+[node name="Popup" type="Popup" parent="."]
+pause_mode = 2
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="finished_dialog" from="CanvasLayer/NinePatchRect" to="." method="_on_NinePatchRect_finished_dialog"]
 [connection signal="started" from="CanvasLayer/NinePatchRect" to="." method="_on_NinePatchRect_started"]

@@ -47,27 +47,29 @@ func _physics_process(delta):
 		motion+=Vector2.RIGHT
 		RayNode.set_rotation_degrees(90)
 		
-	motion = motion.normalized()*speed*delta
-	move_and_collide(motion)
+	motion = motion.normalized()*speed #*delta
+	#move_and_collide(motion)
+	move_and_slide(motion)
 	
-	if (motion.length()>IDLE_SPEED*0.09):
-		if(Input.is_action_pressed("ui_up")):
-			anim = "walk_up"
-		if(Input.is_action_pressed("ui_down")):
-			anim = "walk_down"
-		if(Input.is_action_pressed("ui_left")):
-			anim = "walk_left"
-		if(Input.is_action_pressed("ui_right")):
-			anim = "walk_right"
-	else:
-		if (RayNode.get_rotation_degrees()==180):
-			anim="idle_up"
-		if (RayNode.get_rotation_degrees()==0):
-			anim="idle_down"
-		if (RayNode.get_rotation_degrees()==-90):
-			anim="idle_left"
-		if (RayNode.get_rotation_degrees()==90):
-			anim="idle_right"
+	if (get_node("CanvasLayer/NinePatchRect").on_dialog==false):
+		if (motion.length()>IDLE_SPEED*0.09):
+			if(Input.is_action_pressed("ui_up")):
+				anim = "walk_up"
+			if(Input.is_action_pressed("ui_down")):
+				anim = "walk_down"
+			if(Input.is_action_pressed("ui_left")):
+				anim = "walk_left"
+			if(Input.is_action_pressed("ui_right")):
+				anim = "walk_right"
+		else:
+			if (RayNode.get_rotation_degrees()==180):
+				anim="idle_up"
+			if (RayNode.get_rotation_degrees()==0):
+				anim="idle_down"
+			if (RayNode.get_rotation_degrees()==-90):
+				anim="idle_left"
+			if (RayNode.get_rotation_degrees()==90):
+				anim="idle_right"
 	
 	if anim != animNew:
 		animNew = anim
@@ -76,6 +78,8 @@ func _physics_process(delta):
 #func _process(delta):
 #	pass
 
+
+
 func _on_NinePatchRect_finished_dialog():
 	get_node(".").speed=80
 	pass # Replace with function body.
@@ -83,4 +87,5 @@ func _on_NinePatchRect_finished_dialog():
 
 func _on_NinePatchRect_started():
 	get_node(".").speed=0
+	
 	pass # Replace with function body.

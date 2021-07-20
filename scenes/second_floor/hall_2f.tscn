@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scenes/characters/main_character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/JitterFreePixelArt.shader" type="Shader" id=2]
@@ -111,10 +111,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 3, 5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 2.9, 4.9, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ "move_down", "move_down" ]
+"values": [ "move_down", "move_down", "idle_down" ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Isaac:position")
@@ -123,10 +123,38 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 3, 5 ),
+"times": PoolRealArray( 2.9, 5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 457, 304 ), Vector2( 457, 361 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "isaac_meet_leave"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Isaac:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 5.2, 5.3, 9.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "move_up", "move_up", "move_right", "move_right" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Isaac:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 5.2, 9.5, 9.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 457, 361 ), Vector2( 457, 254 ), Vector2( 549, 254 ), Vector2( -521, 62 ) ]
 }
 
 [node name="Node" type="Node"]
@@ -228,12 +256,13 @@ position = Vector2( 11.9104, 4.24529 )
 shape = SubResource( 9 )
 
 [node name="emily" parent="." instance=ExtResource( 4 )]
-position = Vector2( 441.9, 428.05 )
-frame = 1
+position = Vector2( 441.9, 319.7 )
+frame = 3
 
 [node name="Isaac" parent="." instance=ExtResource( 5 )]
-position = Vector2( 457, 361 )
-animation = "move_down"
+position = Vector2( 457, 348.412 )
+animation = "move_up"
+frame = 3
 
 [node name="ColorRect3" type="ColorRect" parent="."]
 margin_left = 637.0
@@ -300,12 +329,13 @@ shape = SubResource( 13 )
 playback_speed = 2.5
 anims/emily_meet = SubResource( 14 )
 anims/emily_meet_leave = SubResource( 15 )
+anims/isaac_meet_leave = SubResource( 16 )
 
 [node name="invisible_event_walls" type="StaticBody2D" parent="."]
 position = Vector2( 436.059, 459.933 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="invisible_event_walls"]
-position = Vector2( 11.519, -76.1797 )
+position = Vector2( -1590.2, -394.411 )
 polygon = PoolVector2Array( 1.78656, -1.8541, -38.0227, 64.5433, -10.1768, 0.525726, 1.85043, -7.71509 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="invisible_event_walls"]

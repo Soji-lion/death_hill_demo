@@ -17,6 +17,7 @@ func _ready():
 		get_node("John_cutscene/Camera2D").current=true
 		get_node("player").position=Vector2(0,0)
 		get_node("John_cutscene").position=Vector2(256,115)
+		get_node("John_cutscene").animation="idle_right"
 		SPEAK.show_text("intro","start_wakeup",0)
 		
 	Global.room="ben_room"

@@ -1,11 +1,5 @@
 extends Node
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -39,8 +33,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if (get_node("player/Control/ColorRect/Button").is_pressed()):
-		print (Global.char_name)
+#		if(Global.char_name!=""&&Global.char_name!="???"): 						need a way to implement this later
 		get_node("player/Control").hide()
+		get_node("player").speed=80
+		Global.progress="name_selected"
+		Global.speak="intro, isaac_name_select"
+		get_node("player/CanvasLayer/NinePatchRect").show_text("intro", "isaac_name_select")
+		
 	
 	if get_node("player/CanvasLayer/NinePatchRect").finished_dialog:
 		if Global.speak == "intro, emily_meet":
@@ -49,7 +48,22 @@ func _process(delta):
 			get_node("actions/meet_emily/CollisionShape2D").position = Vector2(1086.286,-16.819)
 			get_node("AnimationPlayer").play("emily_meet_leave")
 		elif Global.speak =="intro, isaac_meet":
-			#work here: we need to show the diary here
+			get_node("player/interface").visible=true
+			get_node("player/interface/TabContainer").set_tab_disabled(2,false)
+			get_node("player/interface/TabContainer").current_tab=2
+			get_node("player").speed=0
+			Global.speak="intro, isaac_notebook"
+			Global.in_game=false
+			Global.progress = "got_notebook"
+			get_tree().paused=true
+		elif Global.speak == "intro, isaac_notebook":
+			if Global.progress=="name_select"&&Global.in_game==true:
+				get_node("player/Control").show()
+		elif Global.speak=="intro, isaac_name_select":
+			get_node("AnimationPlayer").play("isaac_meet_leave")
+			get_node("invisible_event_walls/CollisionPolygon2D").position=Vector2(-1590, -394)
+			Global.speak=""
+			Global.progress="explore_2nd_floor"
 			pass
 	
 	if Global.progress=="met_emily":
@@ -58,9 +72,17 @@ func _process(delta):
 			get_node("player/CanvasLayer/NinePatchRect").show_text("intro","isaac_meet",0)
 			Global.progress = ""
 			Global.speak ="intro, isaac_meet"
+	elif Global.progress=="explore_2nd_floor":
+		pass #workhere
 		#not used at the moment
 	#Global.temp_progress==Global.progress
 	pass
+	
+	if Global.progress=="got_notebook"&&Global.in_game==true:
+		get_node("player/CanvasLayer/NinePatchRect").show_text("intro", "isaac_notebook")
+		Global.progress="name_select"
+		pass
+
 
 ##################
 #transition functions
@@ -113,8 +135,6 @@ func _on_meet_emily_body_entered(body):
 	get_node("AnimationPlayer").play("emily_meet")
 	get_node("player/AnimatedSprite").animation="idle_up"
 	get_node("player/CanvasLayer/NinePatchRect").on_dialog=true
-	
-	#get_node("player/Control").show()
 
 
 ####################################
@@ -135,7 +155,10 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "emily_meet_leave":
 		Global.speak =""
 		Global.progress = "met_emily"
-		get_node("player").speed =80   ##Player shoud be able to move after the animation is done
+		
+	if anim_name == "isaac_meet_leave":
+		pass
+	get_node("player").speed =80   ##Player shoud be able to move after the animation is done
 
 func _on_AnimationPlayer_animation_started(anim_name):
 	get_node("player").speed=0         ##The character chouldn't move during the animation

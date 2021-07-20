@@ -22,12 +22,12 @@ __meta__ = {
 }
 
 [node name="stats" type="Tabs" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 28.0
 
 [node name="items" type="Tabs" parent="TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 28.0
@@ -37,6 +37,16 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 28.0
+
+[node name="Label" type="Label" parent="TabContainer/notes"]
+margin_left = 158.0
+margin_top = 78.0
+margin_right = 308.0
+margin_bottom = 136.0
+text = "Add notepad in here!!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="options" type="Tabs" parent="TabContainer"]
 visible = false

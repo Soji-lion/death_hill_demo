@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://textures/1floor/clothes_room.png" type="Texture" id=1]
 [ext_resource path="res://scenes/characters/main_character.tscn" type="PackedScene" id=2]
@@ -14,6 +14,9 @@ extents = Vector2( 8.36859, 3.72182 )
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 3 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 12.5418, 4.20123 )
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 3 )
@@ -64,21 +67,46 @@ material = SubResource( 3 )
 position = Vector2( 470, 216.5 )
 texture = ExtResource( 16 )
 
+[node name="Area2D" type="Area2D" parent="StaticBody2D/cupboard"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/cupboard/Area2D"]
+position = Vector2( 0, 25.6326 )
+shape = SubResource( 8 )
+
 [node name="cupboard2" type="Sprite" parent="StaticBody2D"]
 material = SubResource( 4 )
 position = Vector2( 498, 216.25 )
 scale = Vector2( 1, 1.0122 )
 texture = ExtResource( 16 )
 
+[node name="Area2D2" type="Area2D" parent="StaticBody2D/cupboard2"]
+scale = Vector2( 1, 0.987947 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/cupboard2/Area2D2"]
+position = Vector2( 0, 25.8826 )
+shape = SubResource( 8 )
+
 [node name="cupboard3" type="Sprite" parent="StaticBody2D"]
 material = SubResource( 4 )
 position = Vector2( 470, 274.5 )
 texture = ExtResource( 16 )
 
+[node name="Area2D3" type="Area2D" parent="StaticBody2D/cupboard3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/cupboard3/Area2D3"]
+position = Vector2( 0, 25.8094 )
+shape = SubResource( 8 )
+
 [node name="cupboard4" type="Sprite" parent="StaticBody2D"]
 material = SubResource( 4 )
 position = Vector2( 544, 274.5 )
 texture = ExtResource( 16 )
+
+[node name="Area2D4" type="Area2D" parent="StaticBody2D/cupboard4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/cupboard4/Area2D4"]
+position = Vector2( 0, 25.8094 )
+shape = SubResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 484, 227 )

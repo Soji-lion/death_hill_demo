@@ -39,7 +39,8 @@ margin_top = 30.1995
 margin_right = 496.427
 margin_bottom = 81.1995
 custom_fonts/font = SubResource( 1 )
-text = "What will be your name?"
+text = "What will be your name?
+Как вас будут звать?"
 __meta__ = {
 "_edit_use_anchors_": false
 }

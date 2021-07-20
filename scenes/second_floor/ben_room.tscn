@@ -41,14 +41,14 @@ animations = [ {
 "name": "idle_right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 7 ), ExtResource( 12 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "walk_down",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 13 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "walk_right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 7 ), ExtResource( 12 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "walk_down",
 "speed": 5.0
 } ]
 
@@ -107,6 +107,7 @@ polygon = PoolVector2Array( -105.966, -95.5764, 99.9346, -95.5764, 99.9613, -45.
 material = SubResource( 2 )
 position = Vector2( 248.799, 126.32 )
 texture = ExtResource( 4 )
+region_rect = Rect2( -6, 22, 58, 52 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="bed"]
 
@@ -134,7 +135,6 @@ position = Vector2( 348, 123 )
 position = Vector2( 398.8, 157 )
 frames = SubResource( 6 )
 animation = "walk_right"
-frame = 1
 playing = true
 __meta__ = {
 "_edit_group_": true

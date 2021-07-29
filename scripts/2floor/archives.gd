@@ -10,6 +10,8 @@ extends Node
 func _ready():
 	if Global.room=="family_dining":
 		get_node("player").position=Vector2(172.938,194.037)
+		Global.char_direction="idle_up"
+	get_node("player").change_direction()
 	Global.room="archives"
 	pass # Replace with function body.
 
@@ -20,10 +22,12 @@ func _ready():
 
 
 func _on_down_body_entered(body):
-	SceneTransition.change_scene("res://scenes/family_dining.tscn")
+	if body==get_node("player"):
+		SceneTransition.change_scene("res://scenes/family_dining.tscn")
 	pass # Replace with function body.
 
 
 func _on_up_body_entered(body):
-	SceneTransition.change_scene("res://scenes/Settings_MM.tscn")
+	if body==get_node("player"):
+		SceneTransition.change_scene("res://scenes/Settings_MM.tscn")
 	pass # Replace with function body.

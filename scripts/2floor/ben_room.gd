@@ -19,7 +19,7 @@ func _ready():
 		get_node("John_cutscene").position=Vector2(256,115)
 		get_node("John_cutscene").animation="idle_right"
 		SPEAK.show_text("intro","start_wakeup",0)
-		
+	get_node("player").change_direction()
 	Global.room="ben_room"
 	pass # Replace with function body.
 
@@ -42,7 +42,8 @@ func _process(delta):
 		
 
 func _on_hall_body_entered(body):
-	SceneTransition.change_scene("res://scenes/second_floor/hall_2f.tscn")
+	if body==get_node("player"):
+		SceneTransition.change_scene("res://scenes/second_floor/hall_2f.tscn")
 	pass # Replace with function body.
 
 

@@ -12,6 +12,7 @@ func _ready():
 		get_node("player").position = Vector2(612.694,415.491)
 	elif Global.room =="pantry":
 		get_node("player").position = Vector2(451.118,343.64)
+	get_node("player").change_direction()
 	Global.room = "kitchen"
 	pass # Replace with function body.
 
@@ -22,10 +23,12 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-	SceneTransition.change_scene("res://scenes/pantry.tscn")
+	if body==get_node("player"):
+		SceneTransition.change_scene("res://scenes/pantry.tscn")
 	pass # Replace with function body.
 
 
 func _on_Area2D2_body_entered(body):
-	SceneTransition.change_scene("res://scenes/Main_hall.tscn")
+	if body==get_node("player"):
+		SceneTransition.change_scene("res://scenes/Main_hall.tscn")
 	pass # Replace with function body.

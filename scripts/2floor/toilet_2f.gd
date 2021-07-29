@@ -10,6 +10,7 @@ extends Node
 func _ready():
 	if Global.room=="hall2f":
 		get_node("player").position=Vector2(298.189,302.496)
+	get_node("player").change_direction()
 	Global.room = "toilet_2f"
 	pass # Replace with function body.
 
@@ -20,5 +21,6 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-	SceneTransition.change_scene("res://scenes/second_floor/hall_2f.tscn")
+	if body==get_node("player"):
+		SceneTransition.change_scene("res://scenes/second_floor/hall_2f.tscn")
 	pass # Replace with function body.

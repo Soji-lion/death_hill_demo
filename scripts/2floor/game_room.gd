@@ -12,6 +12,9 @@ func _ready():
 		get_node("player").position=Vector2(107.027,224.13)
 	elif Global.room=="max_room":
 		get_node("player").position=Vector2(322, 323)
+	get_node("player").change_direction()
+	#anim=Global.char_direction
+	
 	Global.room="game_room"
 	pass # Replace with function body.
 
@@ -22,10 +25,12 @@ func _ready():
 
 
 func _on_max_room_body_entered(body):
-	SceneTransition.change_scene("res://scenes/second_floor/max_room.tscn")
+	if body==get_node("player"):
+		SceneTransition.change_scene("res://scenes/second_floor/max_room.tscn")
 	pass # Replace with function body.
 
 
 func _on_hall_body_entered(body):
-	SceneTransition.change_scene("res://scenes/second_floor/hall_2f.tscn")
+	if body==get_node("player"):
+		SceneTransition.change_scene("res://scenes/second_floor/hall_2f.tscn")
 	pass # Replace with function body.

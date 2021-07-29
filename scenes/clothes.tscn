@@ -15,20 +15,20 @@ extents = Vector2( 8.36859, 3.72182 )
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 3 )
 
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 12.5418, 4.20123 )
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 9.04947, 4.20123 )
 
-[sub_resource type="ShaderMaterial" id=4]
+[sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 3 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 27, 10 )
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 13, 21 )
-
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 13, 21 )
+extents = Vector2( 13, 14.7859 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 13, 14.6284 )
 
 [node name="Node" type="Node"]
 script = ExtResource( 15 )
@@ -70,11 +70,11 @@ texture = ExtResource( 16 )
 [node name="Area2D" type="Area2D" parent="StaticBody2D/cupboard"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/cupboard/Area2D"]
-position = Vector2( 0, 25.6326 )
-shape = SubResource( 8 )
+position = Vector2( -0.8125, 25.7576 )
+shape = SubResource( 4 )
 
 [node name="cupboard2" type="Sprite" parent="StaticBody2D"]
-material = SubResource( 4 )
+material = SubResource( 5 )
 position = Vector2( 498, 216.25 )
 scale = Vector2( 1, 1.0122 )
 texture = ExtResource( 16 )
@@ -84,42 +84,66 @@ scale = Vector2( 1, 0.987947 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/cupboard2/Area2D2"]
 position = Vector2( 0, 25.8826 )
-shape = SubResource( 8 )
+shape = SubResource( 4 )
 
 [node name="cupboard3" type="Sprite" parent="StaticBody2D"]
-material = SubResource( 4 )
-position = Vector2( 470, 274.5 )
+material = SubResource( 5 )
+position = Vector2( 469.882, 274.5 )
 texture = ExtResource( 16 )
 
 [node name="Area2D3" type="Area2D" parent="StaticBody2D/cupboard3"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/cupboard3/Area2D3"]
 position = Vector2( 0, 25.8094 )
-shape = SubResource( 8 )
+shape = SubResource( 4 )
 
 [node name="cupboard4" type="Sprite" parent="StaticBody2D"]
-material = SubResource( 4 )
-position = Vector2( 544, 274.5 )
+material = SubResource( 5 )
+position = Vector2( 543.882, 274.5 )
 texture = ExtResource( 16 )
 
 [node name="Area2D4" type="Area2D" parent="StaticBody2D/cupboard4"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/cupboard4/Area2D4"]
 position = Vector2( 0, 25.8094 )
-shape = SubResource( 8 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 484, 227 )
-shape = SubResource( 5 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 470, 274 )
 shape = SubResource( 6 )
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 544, 274 )
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 469.843, 279.827 )
 shape = SubResource( 7 )
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 544, 279.793 )
+shape = SubResource( 8 )
+
 [node name="player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 525, 221 )
+position = Vector2( 508.303, 255.02 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 531.352
+margin_top = 253.478
+margin_right = 557.352
+margin_bottom = 268.478
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 456.733
+margin_top = 253.329
+margin_right = 482.733
+margin_bottom = 268.329
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

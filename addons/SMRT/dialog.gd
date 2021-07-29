@@ -253,6 +253,8 @@ func show_text(chapter, dialog, start_at = 0):
 #	based on the start_at parameter
 	while on_dialog and start_at < dialog_array.size():
 		Global.is_in_dialogue=true
+		Global.can_save_now=false
+		Global.can_move=false
 		emit_signal("started")
 		textObj.add_font_override("normal_font", font)
 		
@@ -406,6 +408,8 @@ func show_text(chapter, dialog, start_at = 0):
 	emit_signal("finished_dialog")
 	beep_pitch = 1.0
 	Global.is_in_dialogue=false
+	Global.can_save_now=true
+	Global.can_move=true
 	visible = false
 
 func question(answer_array):

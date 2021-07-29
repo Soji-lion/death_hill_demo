@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://textures/1floor/kitchen.png" type="Texture" id=1]
 [ext_resource path="res://scenes/characters/main_character.tscn" type="PackedScene" id=2]
@@ -20,6 +20,36 @@ extents = Vector2( 14.7443, 1.95343 )
 extents = Vector2( 14.8304, 2.4382 )
 
 [sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 1.63083, 1.97696 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 1.32501, 1.94907 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 1.22147, 1.14627 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 1.2215, 1.25763 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 1.5553, 1.59158 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 2.8931, 1.89597 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 4.25604, 1.41934 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 4.43372, 1.46384 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 4.26398, 1.11505 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 4.06519, 1.97531 )
+
+[sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 138.691, 5.81616 )
 
 [node name="Node" type="Node"]
@@ -70,10 +100,46 @@ material = SubResource( 1 )
 position = Vector2( 506.22, 240.819 )
 texture = ExtResource( 17 )
 
+[node name="Area2D" type="Area2D" parent="furniture/kitchen_table"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="furniture/kitchen_table/Area2D"]
+position = Vector2( -50.2305, 18.0592 )
+shape = SubResource( 4 )
+
+[node name="Area2D2" type="Area2D" parent="furniture/kitchen_table"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="furniture/kitchen_table/Area2D2"]
+position = Vector2( -25.2775, 18.1003 )
+shape = SubResource( 5 )
+
+[node name="Area2D3" type="Area2D" parent="furniture/kitchen_table"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="furniture/kitchen_table/Area2D3"]
+position = Vector2( -1.67044, 17.818 )
+shape = SubResource( 6 )
+
+[node name="Area2D4" type="Area2D" parent="furniture/kitchen_table"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="furniture/kitchen_table/Area2D4"]
+position = Vector2( 21.3816, 18.0407 )
+shape = SubResource( 7 )
+
+[node name="Area2D5" type="Area2D" parent="furniture/kitchen_table"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="furniture/kitchen_table/Area2D5"]
+position = Vector2( 46.8836, 18.0407 )
+shape = SubResource( 8 )
+
 [node name="oven_off" type="Sprite" parent="furniture"]
 material = SubResource( 1 )
 position = Vector2( 426.372, 241.012 )
 texture = ExtResource( 16 )
+
+[node name="Area2D" type="Area2D" parent="furniture/oven_off"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="furniture/oven_off/Area2D"]
+position = Vector2( 0.111359, 17.818 )
+shape = SubResource( 9 )
 
 [node name="water_sink" type="Sprite" parent="furniture"]
 material = SubResource( 1 )
@@ -95,28 +161,52 @@ material = SubResource( 1 )
 position = Vector2( 582.969, 236.415 )
 texture = ExtResource( 20 )
 
+[node name="Area2D" type="Area2D" parent="furniture/refrigurator"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="furniture/refrigurator/Area2D"]
+position = Vector2( 0.334045, 23.2747 )
+shape = SubResource( 10 )
+
 [node name="refrigurator3" type="Sprite" parent="furniture"]
 material = SubResource( 1 )
 position = Vector2( 640.477, 236.396 )
 texture = ExtResource( 20 )
+
+[node name="Area2D" type="Area2D" parent="furniture/refrigurator3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="furniture/refrigurator3/Area2D"]
+position = Vector2( 0.334045, 23.9429 )
+shape = SubResource( 11 )
 
 [node name="refrigurator2" type="Sprite" parent="furniture"]
 material = SubResource( 1 )
 position = Vector2( 610.913, 236.604 )
 texture = ExtResource( 20 )
 
+[node name="Area2D" type="Area2D" parent="furniture/refrigurator2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="furniture/refrigurator2/Area2D"]
+position = Vector2( 1.22498, 23.2748 )
+shape = SubResource( 12 )
+
 [node name="oven_off2" type="Sprite" parent="furniture"]
 material = SubResource( 1 )
 position = Vector2( 396.023, 240.98 )
 texture = ExtResource( 16 )
 
+[node name="Area2D" type="Area2D" parent="furniture/oven_off2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="furniture/oven_off2/Area2D"]
+position = Vector2( -0.222748, 18.4861 )
+shape = SubResource( 13 )
+
 [node name="StaticBody2D" type="StaticBody2D" parent="furniture"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="furniture/StaticBody2D"]
 position = Vector2( 520.248, 250.265 )
-shape = SubResource( 4 )
+shape = SubResource( 14 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 556.672, 300.238 )
+position = Vector2( 635.157, 268.137 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_Area2D2_body_entered"]

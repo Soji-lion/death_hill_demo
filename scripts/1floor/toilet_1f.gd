@@ -10,6 +10,7 @@ onready var scare =get_node("scary/AudioStreamPlayer2D")
 func _ready():
 	if Global.room == "main_hall":
 		get_node("player").position = Vector2(-61.103,15.984)
+	get_node("player").change_direction()
 	Global.room = "toilet_1f"
 	pass # Replace with function body.
 
@@ -23,8 +24,10 @@ func _process(delta):
 	pass
 
 
+
 func _on_Area2D_body_entered(body):
-	SceneTransition.change_scene("res://scenes/Main_hall.tscn")
+	if body==get_node("player"):
+		SceneTransition.change_scene("res://scenes/Main_hall.tscn")
 
 
 

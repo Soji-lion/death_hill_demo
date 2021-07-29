@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/characters/main_character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://textures/1floor/hall.png" type="Texture" id=2]
@@ -45,6 +45,9 @@ extents = Vector2( 1.8246, 12.8052 )
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 3.58009, 2.88159 )
 
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 21.7655, 6.82493 )
+
 [node name="node" type="Node"]
 pause_mode = 1
 script = ExtResource( 3 )
@@ -78,7 +81,7 @@ position = Vector2( -1.68948, -70.3273 )
 polygon = PoolVector2Array( -88.5198, -62.3378, -22.9021, -62.54, -22.9021, -70.7296, -6.42184, -70.123, -6.21963, -62.4389, 55.7458, -62.2931, 55.0878, -55.958, 52.2555, -50.9696, 52.0555, -43.6572, 56.0555, -43.6572, 56.0306, -47.0524, 57.0555, -50.6572, 59.0555, -53.6572, 59.0555, -56.6572, 60.0555, -92.6572, 98.6551, -92.8917, 98.4986, -56.9824, 101.055, -51.6572, 101.055, -43.6572, 106.055, -43.6572, 106.055, -51.6572, 103.055, -56.6572, 102.055, -62.6572, 164.812, -62.609, 165.055, -72.6572, 182.055, -72.6572, 182.055, -62.6572, 246.009, -62.1844, 246.073, -24.3973, 252.08, -24.3246, 252.171, 1.77239, 246.137, 1.60131, 246.012, 98.9948, 252.429, 99.6364, 253.231, 125.946, 246.972, 126.337, 246.35, 186.046, 201.153, 186.253, 200.946, 191.851, 170.172, 191.443, 170.172, 186.718, 97.0199, 186.414, 96.9726, 362.213, 74.2674, 361.981, 74.5135, 367.785, 38.1904, 367.099, 38.0257, 361.994, 16.8389, 362.231, 16.9828, 248.97, -3.66299, 248.797, -3.66299, 253.628, -34.1143, 253.948, -34.1752, 249.017, -88.6565, 249.135, -89.0818, 140.964, -97.9465, 140.801, -97.8485, 92.2574, -88.951, 92.192, -89.5301, -62.0316, -94.3415, -35.52, -176.836, 65.4178, -164.618, 276.938, -23.482, 406.577, 133.492, 420.561, 372.287, 215.127, 324.033, -47.1914, 292.276, -116.04, 56.0678, -179.385, -106.618, -110.161 )
 
 [node name="character" parent="." instance=ExtResource( 1 )]
-position = Vector2( 22.9612, 2.18521 )
+position = Vector2( 71.0154, -124.625 )
 
 [node name="exit" type="Area2D" parent="."]
 position = Vector2( -4.67592, 274.87 )
@@ -151,6 +154,19 @@ position = Vector2( -10.6251, -142.955 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="main_secret"]
 position = Vector2( 1.8041, 0.38263 )
 shape = SubResource( 13 )
+
+[node name="isaac_follow_me_speak" type="Area2D" parent="."]
+position = Vector2( -777.305, -185.066 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="isaac_follow_me_speak"]
+position = Vector2( -2.24492, -3.64801 )
+shape = SubResource( 14 )
+
+[node name="isaac_foolow_me" type="StaticBody2D" parent="."]
+position = Vector2( -871.031, -1.12244 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="isaac_foolow_me"]
+polygon = PoolVector2Array( 183.711, -64.7685, -7.95427, -64.4536, -6.53686, -124.615, -4.01701, -124.142, -4.01701, -79.8876, 184.026, -77.9977 )
 [connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]
 [connection signal="body_entered" from="2nd_floor" to="." method="_on_2nd_floor_body_entered"]
 [connection signal="body_entered" from="kitchen_door" to="." method="_on_kitchen_door_body_entered"]
@@ -162,3 +178,4 @@ shape = SubResource( 13 )
 [connection signal="body_entered" from="toilet" to="." method="_on_toilet_body_entered"]
 [connection signal="body_entered" from="main_secret" to="." method="_on_main_secret_body_entered"]
 [connection signal="body_exited" from="main_secret" to="." method="_on_main_secret_body_exited"]
+[connection signal="body_entered" from="isaac_follow_me_speak" to="." method="_on_Area2D_body_entered"]

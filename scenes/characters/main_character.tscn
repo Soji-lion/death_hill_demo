@@ -28,24 +28,9 @@ shader = ExtResource( 14 )
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 8 ) ],
 "loop": true,
-"name": "idle_right",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "walk_left",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "idle_up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 1 ) ],
-"loop": true,
-"name": "walk_down",
+"name": "walk_right",
 "speed": 4.0
 }, {
 "frames": [ ExtResource( 12 ), ExtResource( 4 ), ExtResource( 13 ), ExtResource( 4 ) ],
@@ -53,20 +38,35 @@ animations = [ {
 "name": "walk_up",
 "speed": 4.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
-"name": "idle_left",
+"name": "walk_left",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "idle_right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 1 ) ],
 "loop": true,
-"name": "walk_right",
+"name": "walk_down",
 "speed": 4.0
 }, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "idle_down",
 "speed": 1.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "idle_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "idle_left",
+"speed": 5.0
 } ]
 
 [node name="player" type="KinematicBody2D"]

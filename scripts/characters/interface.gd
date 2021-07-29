@@ -1,7 +1,8 @@
 extends Control
 
 func _ready():
-	get_node("TabContainer").set_tab_disabled(2, true)
+	if Global.progress=="awake"||Global.progress=="met_emily":
+		get_node("TabContainer").set_tab_disabled(2, true)
 	pass # Replace with function body.
 
 

@@ -73,7 +73,7 @@ shape = SubResource( 4 )
 
 [node name="dining_table" type="Sprite" parent="."]
 material = SubResource( 1 )
-position = Vector2( 542.122, 301.993 )
+position = Vector2( 541.964, 301.993 )
 texture = ExtResource( 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="dining_table"]
@@ -83,6 +83,19 @@ position = Vector2( -0.407837, 5.7174 )
 shape = SubResource( 5 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 603.885, 349.086 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 519.0
+margin_top = 232.0
+margin_right = 565.0
+margin_bottom = 312.0
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_Area2D2_body_entered"]
 [connection signal="body_entered" from="secret" to="." method="_on_secret_body_entered"]

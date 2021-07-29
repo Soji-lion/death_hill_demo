@@ -56,7 +56,8 @@ func save_game():
 	"episode":Global.episode,
 	"progress":Global.progress,
 	"char_name":Global.char_name,
-	"player_position":Global.player_position
+	"player_position":Global.player_position,
+	"can_move":Global.can_move
 }
 	var file = File.new()
 	
@@ -70,6 +71,7 @@ func save_game():
 		file.store_var(Global.progress)
 		file.store_var(Global.char_name)
 		file.store_var(Global.player_position)
+		file.store_var(Global.can_move)
 		
 		file.close()
 	pass
@@ -88,6 +90,7 @@ func load_game(path):
 			Global.progress=file.get_var()
 			Global.char_name=file.get_var()
 			Global.player_position=file.get_var()
+			Global.can_move=file.get_var()
 			file.close()
 			get_tree().change_scene(address[Global.room])
 			loaded = true

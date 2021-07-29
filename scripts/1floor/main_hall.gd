@@ -28,65 +28,90 @@ func _ready():
 		get_node("character").position = Vector2(181.249, -101.949)
 	elif Global.room == "main_secret":
 		get_node("character").position = Vector2(-10.613,-148.64)
+	get_node("character").change_direction()
 	Global.room = "main_hall"
+	
+	if Global.progress=="explore_2nd_floor":
+		get_node("isaac_follow_me_speak").position= Vector2(20.766,-115.473)
+		get_node("isaac_foolow_me").position= Vector2(0,0)
+		
 
 
 func _process(delta):
 	if Input.is_action_just_pressed("action")&&next_to_the_secret==true:
 		SceneTransition.change_scene("res://scenes/main_secret.tscn")
+	
+	
 
 func _on_exit_body_entered(body):
 	if ("1name1" in b):
 		b.replace("1name1",Global.char_name)
-	SceneTransition.change_scene("res://scenes/Main_menu.tscn")
+	if body==get_node("character"):
+		SceneTransition.change_scene("res://scenes/Main_menu.tscn")
 
 
 
 func _on_2nd_floor_body_entered(body):
-	
-	SceneTransition.change_scene("res://scenes/second_floor/hall_2f.tscn")
+	if body==get_node("character"):
+		SceneTransition.change_scene("res://scenes/second_floor/hall_2f.tscn")
 
 
 
 func _on_kitchen_door_body_entered(body):
-	SceneTransition.change_scene("res://scenes/kitchen.tscn")
+	if body==get_node("character"):
+		SceneTransition.change_scene("res://scenes/kitchen.tscn")
 
 
 
 func _on_tea_room_door_body_entered(body):
-	SceneTransition.change_scene("res://scenes/tea_room.tscn")
+	if body==get_node("character"):
+		SceneTransition.change_scene("res://scenes/tea_room.tscn")
 
 
 
 func _on_lunch_room_door_body_entered(body):
-	SceneTransition.change_scene("res://scenes/lunch_room.tscn")
+	if body==get_node("character"):
+		SceneTransition.change_scene("res://scenes/lunch_room.tscn")
 
 
 
 func _on_clothes_door_body_entered(body):
-	SceneTransition.change_scene("res://scenes/clothes.tscn")
+	if body==get_node("character"):
+		SceneTransition.change_scene("res://scenes/clothes.tscn")
 
 
 
 func _on_workRoom_door_body_entered(body):
-	SceneTransition.change_scene("res://scenes/g_cabinet.tscn")
+	if body==get_node("character"):
+		SceneTransition.change_scene("res://scenes/g_cabinet.tscn")
 
 
 
 func _on_library_body_entered(body):
-	SceneTransition.change_scene("res://scenes/library.tscn")
+	if body==get_node("character"):
+		SceneTransition.change_scene("res://scenes/library.tscn")
 
 
 
 func _on_toilet_body_entered(body):
-	SceneTransition.change_scene("res://scenes/toilet_1f.tscn")
+	if Global.progress=="explore_2nd_floor":
+		get_node("character/CanvasLayer/NinePatchRect").show_text("1", "toilet_not_enter", 0)
+	else:
+		if body==get_node("character"):
+			SceneTransition.change_scene("res://scenes/toilet_1f.tscn")
 
 
 func _on_main_secret_body_entered(body):
-	next_to_the_secret = true
+	if body==get_node("character"):
+		next_to_the_secret = true
 	
 
 
 func _on_main_secret_body_exited(body):
-	
-	next_to_the_secret = false
+	if body==get_node("character"):
+		next_to_the_secret = false
+
+
+func _on_Area2D_body_entered(body):
+	get_node("character/CanvasLayer/NinePatchRect").show_text("intro", "isaac_follow_me_no", 0)
+	pass # Replace with function body.

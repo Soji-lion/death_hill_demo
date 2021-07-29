@@ -20,7 +20,7 @@ func _ready():
 	elif Global.room=="third_floor":
 		get_node("player").position = Vector2(543,575)
 	#if Global.progress = "awake":
-		
+	get_node("player").change_direction()
 	Global.room="hall2f"
 	
 	if Global.progress=="awake":
@@ -58,6 +58,7 @@ func _process(delta):
 			get_tree().paused=true
 		elif Global.speak == "intro, isaac_notebook":
 			if Global.progress=="name_select"&&Global.in_game==true:
+				Global.can_move=false
 				get_node("player/Control").show()
 		elif Global.speak=="intro, isaac_name_select":
 			get_node("AnimationPlayer").play("isaac_meet_leave")
@@ -73,10 +74,14 @@ func _process(delta):
 			Global.progress = ""
 			Global.speak ="intro, isaac_meet"
 	elif Global.progress=="explore_2nd_floor":
-		pass #workhere
-		#not used at the moment
-	#Global.temp_progress==Global.progress
-	pass
+		if Global.temp_progress!=Global.progress:
+			
+			#nothing to put here yet!!!
+			#(maybe shouldn't use this way as there are two other ways already been implemented!)
+			
+			Global.temp_progress=Global.progress
+			
+		
 	
 	if Global.progress=="got_notebook"&&Global.in_game==true:
 		get_node("player/CanvasLayer/NinePatchRect").show_text("intro", "isaac_notebook")
@@ -88,36 +93,46 @@ func _process(delta):
 #transition functions
 
 func _on_1f_body_entered(body):
-	SceneTransition.change_scene("res://scenes/Main_hall.tscn")
+	if body==get_node("player"):
+		SceneTransition.change_scene("res://scenes/Main_hall.tscn")
 
 
 func _on_toilet_2f_body_entered(body):
-	SceneTransition.change_scene("res://scenes/second_floor/toilet_2f.tscn")
+	if Global.progress=="explore_2nd_floor":
+		get_node("player/CanvasLayer/NinePatchRect").show_text("1", "toilet_not_enter")
+	else:
+		if body==get_node("player"):
+			 SceneTransition.change_scene("res://scenes/second_floor/toilet_2f.tscn")
 	pass # Replace with function body.
 
 
 func _on_Jenny_room_body_entered(body):
-	SceneTransition.change_scene("res://scenes/second_floor/jenny_room.tscn")
+	if body==get_node("player"):
+		SceneTransition.change_scene("res://scenes/second_floor/jenny_room.tscn")
 	pass # Replace with function body.
 
 
 func _on_ben_room_body_entered(body):
-	SceneTransition.change_scene("res://scenes/second_floor/ben_room.tscn")
+	if body==get_node("player"):
+		SceneTransition.change_scene("res://scenes/second_floor/ben_room.tscn")
 	pass # Replace with function body.
 
 
 func _on_bishop_room_body_entered(body):
-	SceneTransition.change_scene("res://scenes/second_floor/bishop_room.tscn")
+	if body==get_node("player"):
+		SceneTransition.change_scene("res://scenes/second_floor/bishop_room.tscn")
 	pass # Replace with function body.
 
 
 func _on_max_room_body_entered(body):
-	SceneTransition.change_scene("res://scenes/second_floor/max_room.tscn")
+	if body==get_node("player"):
+		SceneTransition.change_scene("res://scenes/second_floor/max_room.tscn")
 	pass # Replace with function body.
 
 
 func _on_game_room_body_entered(body):
-	SceneTransition.change_scene("res://scenes/second_floor/game_room.tscn")
+	if body==get_node("player"):
+		SceneTransition.change_scene("res://scenes/second_floor/game_room.tscn")
 	pass # Replace with function body.
 
 
@@ -131,7 +146,7 @@ func _on_third_floor_body_entered(body):
 
 func _on_meet_emily_body_entered(body):
 	#print (body)
-	get_node("player").speed = 0
+	Global.can_move=false
 	get_node("AnimationPlayer").play("emily_meet")
 	get_node("player/AnimatedSprite").animation="idle_up"
 	get_node("player/CanvasLayer/NinePatchRect").on_dialog=true

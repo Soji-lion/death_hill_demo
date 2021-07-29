@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://textures/1floor/library.png" type="Texture" id=1]
 [ext_resource path="res://scenes/characters/main_character.tscn" type="PackedScene" id=2]
@@ -67,6 +67,9 @@ extents = Vector2( 1.58984, 11.9418 )
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 6, 13 )
 
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 6.90028, 2.99755 )
+
 [node name="library" type="Node"]
 script = ExtResource( 3 )
 
@@ -101,7 +104,7 @@ format = 1
 tile_data = PoolIntArray( -3801174, 0, 0, -3801144, 0, 0, -3801114, 0, 0, -3866620, 0, 0, -3866590, 0, 0, -393308, 0, 0, -393278, 0, 0, -458740, 0, 0, -458710, 0, 0, -458680, 0, 0, 3538896, 0, 0, 3538926, 0, 0, 3473420, 0, 0, 3473450, 0, 0, 3473480, 0, 0 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-position = Vector2( -82, 23 )
+position = Vector2( -64.3412, 21.8438 )
 
 [node name="TileMap" type="TileMap" parent="."]
 material = SubResource( 1 )
@@ -127,4 +130,109 @@ position = Vector2( -14, 7 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sofa_green/StaticBody2D2"]
 position = Vector2( 13, -4 )
 shape = SubResource( 7 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( -72.0794, -32.5322 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0.735786, -1.15623 )
+shape = SubResource( 8 )
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2( -42.4878, -31.783 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( 0.210224, -1.78691 )
+shape = SubResource( 8 )
+
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2( -12.5217, -29.9101 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2( 0.210224, -3.4687 )
+shape = SubResource( 8 )
+
+[node name="Area2D4" type="Area2D" parent="."]
+position = Vector2( 15.1624, -32.1086 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+position = Vector2( 2.94314, -1.26134 )
+shape = SubResource( 8 )
+
+[node name="Area2D5" type="Area2D" parent="."]
+position = Vector2( 45.7845, -30.3248 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5"]
+position = Vector2( 3.57381, -2.6278 )
+shape = SubResource( 8 )
+
+[node name="Area2D6" type="Area2D" parent="."]
+position = Vector2( -77.5958, 25.2706 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D6"]
+position = Vector2( 0.735786, -5.35467 )
+shape = SubResource( 8 )
+
+[node name="Area2D7" type="Area2D" parent="."]
+position = Vector2( -43.7034, 22.8922 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D7"]
+position = Vector2( -3.67892, -3.15336 )
+shape = SubResource( 8 )
+
+[node name="Area2D8" type="Area2D" parent="."]
+position = Vector2( 27.9464, 22.8922 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D8"]
+position = Vector2( -1.15623, -3.4687 )
+shape = SubResource( 8 )
+
+[node name="Area2D9" type="Area2D" parent="."]
+position = Vector2( 58.2711, 22.5949 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D9"]
+position = Vector2( -0.840897, -3.25847 )
+shape = SubResource( 8 )
+
+[node name="Area2D10" type="Area2D" parent="."]
+position = Vector2( 85.9202, 23.1895 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D10"]
+position = Vector2( 0.525558, -3.67892 )
+shape = SubResource( 8 )
+
+[node name="Area2D11" type="Area2D" parent="."]
+position = Vector2( -32.7032, 83.2445 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D11"]
+position = Vector2( -1.89202, -4.4147 )
+shape = SubResource( 8 )
+
+[node name="Area2D12" type="Area2D" parent="."]
+position = Vector2( -3.8649, 83.8391 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D12"]
+position = Vector2( 0.420448, -4.62493 )
+shape = SubResource( 8 )
+
+[node name="Area2D13" type="Area2D" parent="."]
+position = Vector2( 28.7308, 82.4607 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D13"]
+position = Vector2( -2.31246, -3.4687 )
+shape = SubResource( 8 )
+
+[node name="Area2D14" type="Area2D" parent="."]
+position = Vector2( 56.19, 82.0553 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D14"]
+position = Vector2( 1.05112, -2.94315 )
+shape = SubResource( 8 )
+
+[node name="Area2D15" type="Area2D" parent="."]
+position = Vector2( 82.3526, 80.8661 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D15"]
+position = Vector2( 4.09937, -1.78691 )
+shape = SubResource( 8 )
 [connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]

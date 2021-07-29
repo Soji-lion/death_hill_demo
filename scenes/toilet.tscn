@@ -13,9 +13,14 @@ shader = ExtResource( 7 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "close_idle",
+"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "toilet_close",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "toilet_open",
 "speed": 7.0
 }, {
 "frames": [ ExtResource( 3 ) ],
@@ -28,19 +33,14 @@ animations = [ {
 "name": "New Anim",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 1 ) ],
-"loop": false,
-"name": "toilet_close",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 1 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ) ],
-"loop": false,
-"name": "toilet_open",
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "close_idle",
 "speed": 7.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 9, 2 )
+extents = Vector2( 6.45908, 2 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 9, 3 )

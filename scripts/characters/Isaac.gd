@@ -17,6 +17,6 @@ func _ready():
 
 
 func _on_event_body_entered(body):
-	if Global.room == "hall2f" && Global.progress == "met_emily":
-		Global.speak="isaac_meet"
-	pass # Replace with function body.
+	if body is Player:
+		if Global.room == "hall2f" && Global.progress == "met_emily":
+			Global.speak="isaac_meet"

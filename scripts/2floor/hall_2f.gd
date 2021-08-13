@@ -22,16 +22,27 @@ func _ready():
 	#if Global.progress = "awake":
 	get_node("player").change_direction()
 	Global.room="hall2f"
-	
 	if Global.progress=="awake":
 		start_emily_meeting()
-#					Not needed
-	#else:
-#		get_node("emily").position = Vector2(1086.286,-16.819) 
+	elif Global.progress=="find_rachel":
+		get_node("rachel").position=Vector2(618,106)
+	elif Global.progress=="met_rachel":
+		get_node("rachel").position=Vector2(618,106)
+		get_node("player").position=Vector2(Global.char_position)
+		Global.speak="intro, rachel_check"
+		get_node("player/CanvasLayer/NinePatchRect").show_text("intro", "rachel_check")
+	#elif Global.progress=="find_rachel_bag":
+#		get_node("player").position=Vector2(Global.char_position)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if (get_node("player/code/ColorRect/Button").is_pressed()):
+		get_node("player/code").hide()
+		if get_node("player/code").answer=="1604":
+			print ("correct code")
+			pass
+	
 	if (get_node("player/Control/ColorRect/Button").is_pressed()):
 #		if(Global.char_name!=""&&Global.char_name!="???"): 						need a way to implement this later
 		get_node("player/Control").hide()
@@ -39,6 +50,15 @@ func _process(delta):
 		Global.progress="name_selected"
 		Global.speak="intro, isaac_name_select"
 		get_node("player/CanvasLayer/NinePatchRect").show_text("intro", "isaac_name_select")
+		
+	if get_node("player/CanvasLayer/NinePatchRect").play_func:
+		var func_name=""
+		for i in 1:
+			func_name = get_node("player/CanvasLayer/NinePatchRect").res
+		get_node("player/CanvasLayer/NinePatchRect").play_func=false
+		if func_name=="1func1_enter_ben_door_code":
+			enter_ben_door_code()
+			pass
 		
 	
 	if get_node("player/CanvasLayer/NinePatchRect").finished_dialog:
@@ -65,7 +85,18 @@ func _process(delta):
 			get_node("invisible_event_walls/CollisionPolygon2D").position=Vector2(-1590, -394)
 			Global.speak=""
 			Global.progress="explore_2nd_floor"
+		elif Global.speak=="intro, rachel_meet":
+			Global.progress="met_rachel"
+			Global.speak=""
+			Global.char_position=get_node("player").position
+			SceneTransition.change_scene("res://scenes/second_floor/hall_2f.tscn")
+		elif Global.speak=="intro, rachel_check":
+			Global.speak=""
+			Global.progress="find_rachel_bag"
+			Global.char_position=get_node("player").position
+			SceneTransition.change_scene("res://scenes/second_floor/hall_2f.tscn")
 			pass
+	
 	
 	if Global.progress=="met_emily":
 		get_node("invisible_event_walls/CollisionPolygon2D").position = Vector2(11,-79.5)
@@ -81,7 +112,10 @@ func _process(delta):
 			
 			Global.temp_progress=Global.progress
 			
-		
+	elif Global.progress=="find_rachel":
+		if Global.speak=="rachel_meet":
+			Global.speak="intro, rachel_meet"
+			get_node("player/CanvasLayer/NinePatchRect").show_text("intro", "rachel_meet")
 	
 	if Global.progress=="got_notebook"&&Global.in_game==true:
 		get_node("player/CanvasLayer/NinePatchRect").show_text("intro", "isaac_notebook")
@@ -114,7 +148,10 @@ func _on_Jenny_room_body_entered(body):
 
 func _on_ben_room_body_entered(body):
 	if body==get_node("player"):
-		SceneTransition.change_scene("res://scenes/second_floor/ben_room.tscn")
+		if Global.progress=="find_rachel_bag":
+			Global.speak="intro_mono, ben_door_locked"
+			get_node("player/CanvasLayer/NinePatchRect").show_text("intro_mono", "ben_door_locked")
+		#SceneTransition.change_scene("res://scenes/second_floor/ben_room.tscn")
 	pass # Replace with function body.
 
 
@@ -151,6 +188,10 @@ func _on_meet_emily_body_entered(body):
 	get_node("player/AnimatedSprite").animation="idle_up"
 	get_node("player/CanvasLayer/NinePatchRect").on_dialog=true
 
+func enter_ben_door_code():
+	get_node("player/code").show()
+	print ("aaa")
+	pass
 
 ####################################
 #chapter setup functions

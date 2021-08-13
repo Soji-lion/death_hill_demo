@@ -172,9 +172,9 @@ position = Vector2( -43, -57 )
 scale = Vector2( 1, 0.97561 )
 texture = ExtResource( 5 )
 
-[node name="Area2D" type="Area2D" parent="StaticBody2D/cupboard2"]
+[node name="cupboard2" type="Area2D" parent="StaticBody2D/cupboard2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/cupboard2/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/cupboard2/cupboard2"]
 position = Vector2( 0.26487, 27.1487 )
 scale = Vector2( 1, 0.467001 )
 shape = SubResource( 2 )
@@ -184,9 +184,9 @@ material = SubResource( 1 )
 position = Vector2( -10, -57 )
 texture = ExtResource( 6 )
 
-[node name="Area2D" type="Area2D" parent="StaticBody2D/bookshelf"]
+[node name="bookshelf" type="Area2D" parent="StaticBody2D/bookshelf"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/bookshelf/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/bookshelf/bookshelf"]
 position = Vector2( 1.85405, 26.4866 )
 shape = SubResource( 3 )
 
@@ -195,9 +195,9 @@ material = SubResource( 1 )
 position = Vector2( -75, -57 )
 texture = ExtResource( 6 )
 
-[node name="Area2D" type="Area2D" parent="StaticBody2D/bookshelf2"]
+[node name="bookshelf2" type="Area2D" parent="StaticBody2D/bookshelf2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/bookshelf2/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/bookshelf2/bookshelf2"]
 position = Vector2( 0.397293, 26.4866 )
 shape = SubResource( 4 )
 
@@ -206,9 +206,9 @@ material = SubResource( 1 )
 position = Vector2( -106, -57 )
 texture = ExtResource( 6 )
 
-[node name="Area2D" type="Area2D" parent="StaticBody2D/bookshelf3"]
+[node name="bookshelf3" type="Area2D" parent="StaticBody2D/bookshelf3"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/bookshelf3/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/bookshelf3/bookshelf3"]
 position = Vector2( -1.32433, 26.9429 )
 shape = SubResource( 5 )
 
@@ -218,9 +218,9 @@ position = Vector2( -136, -57 )
 scale = Vector2( 1, 0.97561 )
 texture = ExtResource( 5 )
 
-[node name="Area2D" type="Area2D" parent="StaticBody2D/cupboard"]
+[node name="cupboard" type="Area2D" parent="StaticBody2D/cupboard"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/cupboard/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/cupboard/cupboard"]
 position = Vector2( 0, 27.1487 )
 shape = SubResource( 6 )
 
@@ -368,6 +368,16 @@ stream = ExtResource( 11 )
 anims/richard_leave1 = SubResource( 17 )
 anims/richard_turn = SubResource( 18 )
 anims/richard_turn_fast = SubResource( 19 )
+[connection signal="body_entered" from="StaticBody2D/cupboard2/cupboard2" to="." method="_on_cupboard2_body_entered"]
+[connection signal="body_exited" from="StaticBody2D/cupboard2/cupboard2" to="." method="_on_cupboard2_body_exited"]
+[connection signal="body_entered" from="StaticBody2D/bookshelf/bookshelf" to="." method="_on_bookshelf_body_entered"]
+[connection signal="body_exited" from="StaticBody2D/bookshelf/bookshelf" to="." method="_on_bookshelf_body_exited"]
+[connection signal="body_entered" from="StaticBody2D/bookshelf2/bookshelf2" to="." method="_on_bookshelf2_body_entered"]
+[connection signal="body_exited" from="StaticBody2D/bookshelf2/bookshelf2" to="." method="_on_bookshelf2_body_exited"]
+[connection signal="body_entered" from="StaticBody2D/bookshelf3/bookshelf3" to="." method="_on_bookshelf3_body_entered"]
+[connection signal="body_exited" from="StaticBody2D/bookshelf3/bookshelf3" to="." method="_on_bookshelf3_body_exited"]
+[connection signal="body_entered" from="StaticBody2D/cupboard/cupboard" to="." method="_on_cupboard_body_entered"]
+[connection signal="body_exited" from="StaticBody2D/cupboard/cupboard" to="." method="_on_cupboard_body_exited"]
 [connection signal="body_entered" from="table_wood/front" to="." method="_on_front_body_entered"]
 [connection signal="body_entered" from="cabinet" to="." method="_on_cabinet_body_entered"]
 [connection signal="body_entered" from="main_hall" to="." method="_on_main_hall_body_entered"]

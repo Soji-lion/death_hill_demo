@@ -1,0 +1,198 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/cutscenes/code_enter.gd" type="Script" id=1]
+[ext_resource path="res://textures/dialogues/blueprint-2_03.png" type="Texture" id=2]
+[ext_resource path="res://fonts/Game_font.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://textures/dialogues/arrow_down.png" type="Texture" id=4]
+[ext_resource path="res://textures/dialogues/arrow_up.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 120
+font_data = ExtResource( 3 )
+
+[node name="code" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -115.0
+margin_top = -236.0
+margin_right = 1195.0
+margin_bottom = 471.0
+rect_scale = Vector2( 1.5, 1.5 )
+color = Color( 0.168627, 0.168627, 0.168627, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="ColorRect"]
+margin_left = 361.0
+margin_top = 408.0
+margin_right = 507.0
+margin_bottom = 470.0
+text = "enter"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="blueprint-2_03" type="Sprite" parent="ColorRect"]
+position = Vector2( 443.335, 328.993 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 2 )
+
+[node name="Label2" type="Label" parent="ColorRect"]
+margin_left = 416.37
+margin_top = 327.37
+margin_right = 469.37
+margin_bottom = 455.37
+rect_scale = Vector2( 0.2, 0.2 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="ColorRect"]
+margin_left = 428.0
+margin_top = 327.333
+margin_right = 481.0
+margin_bottom = 455.333
+rect_scale = Vector2( 0.2, 0.2 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="ColorRect"]
+margin_left = 440.0
+margin_top = 327.333
+margin_right = 493.0
+margin_bottom = 455.333
+rect_scale = Vector2( 0.2, 0.2 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="ColorRect"]
+margin_left = 452.0
+margin_top = 327.0
+margin_right = 505.0
+margin_bottom = 455.0
+rect_scale = Vector2( 0.2, 0.2 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="arr_1" type="TextureButton" parent="ColorRect"]
+margin_left = 415.0
+margin_top = 321.0
+margin_right = 420.0
+margin_bottom = 324.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="arr_2" type="TextureButton" parent="ColorRect"]
+margin_left = 427.0
+margin_top = 321.0
+margin_right = 432.0
+margin_bottom = 324.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="arr_3" type="TextureButton" parent="ColorRect"]
+margin_left = 439.333
+margin_top = 321.333
+margin_right = 444.333
+margin_bottom = 324.333
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="arr_4" type="TextureButton" parent="ColorRect"]
+margin_left = 451.0
+margin_top = 321.0
+margin_right = 456.0
+margin_bottom = 324.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="arr_5" type="TextureButton" parent="ColorRect"]
+margin_left = 414.667
+margin_top = 350.667
+margin_right = 419.667
+margin_bottom = 353.667
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="arr_6" type="TextureButton" parent="ColorRect"]
+margin_left = 426.667
+margin_top = 351.333
+margin_right = 431.667
+margin_bottom = 354.333
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="arr_7" type="TextureButton" parent="ColorRect"]
+margin_left = 439.333
+margin_top = 351.333
+margin_right = 444.333
+margin_bottom = 354.333
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="arr_8" type="TextureButton" parent="ColorRect"]
+margin_left = 451.333
+margin_top = 351.333
+margin_right = 456.333
+margin_bottom = 354.333
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="ColorRect/Button" to="." method="_on_Button_button_up"]
+[connection signal="pressed" from="ColorRect/arr_1" to="." method="_on_arr_1_pressed"]
+[connection signal="pressed" from="ColorRect/arr_2" to="." method="_on_arr_2_pressed"]
+[connection signal="pressed" from="ColorRect/arr_3" to="." method="_on_arr_3_pressed"]
+[connection signal="pressed" from="ColorRect/arr_4" to="." method="_on_arr_4_pressed"]
+[connection signal="pressed" from="ColorRect/arr_5" to="." method="_on_arr_5_pressed"]
+[connection signal="pressed" from="ColorRect/arr_6" to="." method="_on_arr_6_pressed"]
+[connection signal="pressed" from="ColorRect/arr_7" to="." method="_on_arr_7_pressed"]
+[connection signal="pressed" from="ColorRect/arr_8" to="." method="_on_arr_8_pressed"]

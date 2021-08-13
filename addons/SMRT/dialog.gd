@@ -80,6 +80,8 @@ var texture_width
 var texture_height
 var dialog_array
 var results
+var res
+var play_func = false
 #THE NEXT VAR IS SENT THROUGH THE SIGNALS dialog_control 
 #AND answer_selected
 var info = {chapter = null, dialog = null, last_text_index = null, total_text = null, answer = null}
@@ -468,9 +470,14 @@ func question(answer_array):
 	dialog_dup.rect_size = btn_answers.rect_size
 
 func answer_response(ans_id):
-	var res = results[ans_id]
-	print(res)
-	show_text(chapter_for_options,res)
+	res = results[ans_id]
+	
+	if (res.find("1func1")!=-1):
+		play_func=true
+	elif (res.find("pass")!=-1):
+		pass
+	else:
+		show_text(chapter_for_options,res)
 	pass
 
 func selected_answer(btn):

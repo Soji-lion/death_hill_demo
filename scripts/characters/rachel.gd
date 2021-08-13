@@ -1,7 +1,9 @@
-extends Control
+extends AnimatedSprite
 
-#signal name_saved
 
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -14,8 +16,7 @@ func _ready():
 #	pass
 
 
-func _on_Button_pressed():
-	var ch_name = get_node("ColorRect/name").text
-	Global.char_name = ch_name
-	#emit_signal("name_saved")
-	pass # Replace with function body.
+func _on_event_body_entered(body):
+	if body is Player:
+		if Global.progress=="find_rachel":
+			Global.speak="rachel_meet"

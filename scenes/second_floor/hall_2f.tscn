@@ -261,11 +261,12 @@ shape = SubResource( 9 )
 
 [node name="emily" parent="." instance=ExtResource( 4 )]
 position = Vector2( 150.131, 113.012 )
+frame = 2
 
 [node name="Isaac" parent="." instance=ExtResource( 5 )]
 position = Vector2( 150.085, 205.868 )
 animation = "move_up"
-frame = 1
+frame = 3
 
 [node name="ColorRect3" type="ColorRect" parent="."]
 margin_left = 637.0

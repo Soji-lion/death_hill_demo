@@ -31,7 +31,8 @@ func _on_settings_pressed():
 	SceneTransition.change_scene("res://scenes/Settings_MM.tscn")
 	pass # Replace with function body.
 
-var save_path = "user://save1.dat"
+var game_stats = "user://save1.dat"
+var game_settings = "user://save2.dat"
 func _on_continue_pressed():
-	SaveLoad.load_game(save_path)
+	SaveLoad.load_game(game_stats, game_settings)
 	pass # Replace with function body.

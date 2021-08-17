@@ -83,7 +83,10 @@ func _on_clothes_door_body_entered(body):
 
 func _on_workRoom_door_body_entered(body):
 	if body==get_node("character"):
-		SceneTransition.change_scene("res://scenes/g_cabinet.tscn")
+		if Global.progress=="123":
+			print(Global.language)
+		else:
+			SceneTransition.change_scene("res://scenes/g_cabinet.tscn")
 
 
 

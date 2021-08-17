@@ -32,7 +32,8 @@ var address = {
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-var save_path = "user://save1.dat"
+var game_stats = "user://save1.dat"
+var game_settings = "user://save2.dat"
 
 func _process(delta):
 	if Input.is_action_just_pressed("save")&&Global.can_save_now==true:
@@ -41,10 +42,19 @@ func _process(delta):
 		
 	
 	if Input.is_action_just_pressed("load"):
-		load_game(save_path)
-		print("loaded game")
+		load_game(game_stats, game_settings)
 	pass
 
+func save_settings():
+	var content = {
+	"language":Global.language
+		}
+	var file = File.new()
+	var error = file.open(game_settings, File.WRITE)
+	if error == OK:
+		file.store_var(Global.language)
+		
+		file.close()
 
 func save_game():
 	#TO DO: implement <=3 save files
@@ -52,7 +62,6 @@ func save_game():
 	"room":Global.room,
 	"is_in_dialog":Global.is_in_dialogue,
 	"speak":Global.speak,
-	"language":Global.language,
 	"episode":Global.episode,
 	"progress":Global.progress,
 	"char_name":Global.char_name,
@@ -61,12 +70,11 @@ func save_game():
 }
 	var file = File.new()
 	
-	var error = file.open(save_path, File.WRITE)
+	var error = file.open(game_stats, File.WRITE)
 	if error == OK:
 		file.store_var(Global.room)
 		file.store_var(Global.is_in_dialogue)
 		file.store_var(Global.speak)
-		file.store_var(Global.language)
 		file.store_var(Global.episode)
 		file.store_var(Global.progress)
 		file.store_var(Global.char_name)
@@ -76,23 +84,56 @@ func save_game():
 		file.close()
 	pass
 
-func load_game(path):
-	var file=File.new()
-	if file.file_exists(path):
-		var error = file.open(path, File.READ)
+func load_settings(set_path):
+	var file = File.new()
+	if file.file_exists(set_path):
+		var error = file.open(set_path, File.READ)
 		if error == OK:
-			Global.room=file.get_var()
-			print (Global.room)
-			Global.is_in_dialogue=file.get_var()
-			Global.speak=file.get_var()
-			Global.language=file.get_var()
-			Global.episode=file.get_var()
-			Global.progress=file.get_var()
-			Global.char_name=file.get_var()
-			Global.player_position=file.get_var()
-			Global.can_move=file.get_var()
+			Global.language = file.get_var()
 			file.close()
-			get_tree().change_scene(address[Global.room])
-			loaded = true
+		
+		
+
+
+
+func load_game(path, set_path):
+	var file=File.new()
+	var file1=File.new()
+	if file.file_exists(path):
+		if file1.file_exists(set_path):
+			var error = file.open(path, File.READ)
+			var error1 = file1.open(set_path, File.READ)
+			print("loaded game")
+			if error == OK&&error1 == OK:
+				Global.room=file.get_var()
+				print (Global.room)
+				Global.is_in_dialogue=file.get_var()
+				Global.speak=file.get_var()
+				Global.language=file1.get_var()
+				Global.episode=file.get_var()
+				Global.progress=file.get_var()
+				Global.char_name=file.get_var()
+				Global.player_position=file.get_var()
+				Global.can_move=file.get_var()
+				file.close()
+				get_tree().change_scene(address[Global.room])
+				loaded = true
+		else:
+			var error = file.open(path, File.READ)
+			print("loaded game")
+			if error == OK:
+				Global.room=file.get_var()
+				print (Global.room)
+				Global.is_in_dialogue=file.get_var()
+				Global.speak=file.get_var()
+				Global.language="res://dialogues/russian.lan"
+				Global.episode=file.get_var()
+				Global.progress=file.get_var()
+				Global.char_name=file.get_var()
+				Global.player_position=file.get_var()
+				Global.can_move=file.get_var()
+				file.close()
+				get_tree().change_scene(address[Global.room])
+				loaded = true
 			
 	pass

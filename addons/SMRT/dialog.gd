@@ -149,6 +149,7 @@ func reset():
 	textObj.bbcode_enabled = true
 	textObj.bbcode_text = ""
 	dialog_array = []
+	lang=Global.language
 	load_language(lang)
 	
 func load_language(lang_file=lang):

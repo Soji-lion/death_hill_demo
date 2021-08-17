@@ -142,7 +142,10 @@ func _on_toilet_2f_body_entered(body):
 
 func _on_Jenny_room_body_entered(body):
 	if body==get_node("player"):
-		SceneTransition.change_scene("res://scenes/second_floor/jenny_room.tscn")
+		if Global.progress=="find_rachel_bag":
+			get_node("player/CanvasLayer/NinePatchRect").show_text("intro_mono", "jenny_door_locked")
+		else:
+			SceneTransition.change_scene("res://scenes/second_floor/jenny_room.tscn")
 	pass # Replace with function body.
 
 
@@ -157,7 +160,10 @@ func _on_ben_room_body_entered(body):
 
 func _on_bishop_room_body_entered(body):
 	if body==get_node("player"):
-		SceneTransition.change_scene("res://scenes/second_floor/bishop_room.tscn")
+		if Global.progress=="find_rachel_bag":
+			get_node("player/CanvasLayer/NinePatchRect").show_text("intro_mono", "henry_door_locked")
+		else:
+			SceneTransition.change_scene("res://scenes/second_floor/bishop_room.tscn")
 	pass # Replace with function body.
 
 

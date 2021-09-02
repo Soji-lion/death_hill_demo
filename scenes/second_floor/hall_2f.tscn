@@ -266,7 +266,6 @@ frame = 2
 [node name="Isaac" parent="." instance=ExtResource( 5 )]
 position = Vector2( 150.085, 205.868 )
 animation = "move_up"
-frame = 3
 
 [node name="ColorRect3" type="ColorRect" parent="."]
 margin_left = 637.0
@@ -306,7 +305,7 @@ position = Vector2( 544, 285 )
 texture = ExtResource( 16 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 433.721, 250.68 )
+position = Vector2( 618.257, 122.894 )
 
 [node name="Control" parent="player" instance=ExtResource( 3 )]
 visible = false

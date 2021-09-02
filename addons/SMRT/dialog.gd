@@ -34,7 +34,6 @@ var TOP
 var MIDDLE
 var BOTTOM
 var chapter_for_options
-
 # EXPORTED VARS =====>
 export (AudioStreamSample) var beep_WAV = preload("res://addons/SMRT/beep_letter.wav")
 export (DynamicFont) var font = preload("res://addons/SMRT/font/main_font.tres")
@@ -169,6 +168,7 @@ func load_language(lang_file=lang):
 			if show_debug_messages:
 				print("Error loading dialog file")
 			return
+		file.close()
 
 func store_dimensions():
 	dimensions.box_rectangle = get_rect()
@@ -291,7 +291,7 @@ func show_text(chapter, dialog, start_at = 0):
 			texture_width = 0
 			texture_height = 0
 		else:
-			print("CURRENT FRAME IS ", dialog_array[start_at].face_frame)
+			#print("CURRENT FRAME IS ", dialog_array[start_at].face_frame)
 			texture_width = face.frames.get_frame("faces", int(dialog_array[start_at].face_frame)).get_width()
 			texture_height = face.frames.get_frame("faces", int(dialog_array[start_at].face_frame)).get_height()
 #		Side of the dialog to display the face
@@ -347,7 +347,7 @@ func show_text(chapter, dialog, start_at = 0):
 			rect_position = Vector2(0,screen_res.y-(get_size().y))
 		var size = rect_size.x
 		face_v_pos = rect_size.y/6 - (texture_height/6)
-		print("The text is: ", textObj.text)
+		#print("The text is: ", textObj.text)
 		if show_debug_messages:
 			print("FACE V POS ", face_v_pos)
 			# no image
@@ -407,7 +407,7 @@ func show_text(chapter, dialog, start_at = 0):
 # Useful to know exactly when it is possible to free the resources it holds.
 	if show_debug_messages:
 		print("SMRT finished displaying all the dialog")
-		finished_dialog=true
+	finished_dialog=true
 	emit_signal("finished_dialog")
 	beep_pitch = 1.0
 	Global.is_in_dialogue=false

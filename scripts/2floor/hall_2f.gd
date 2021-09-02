@@ -94,7 +94,8 @@ func _process(delta):
 			Global.speak=""
 			Global.progress="find_rachel_bag"
 			Global.char_position=get_node("player").position
-			SceneTransition.change_scene("res://scenes/second_floor/hall_2f.tscn")
+			#SceneTransition.change_scene("res://scenes/second_floor/hall_2f.tscn")
+			SceneTransition.change_scene("res://scenes/cutscenes/congrats.tscn")
 			pass
 	
 	
@@ -136,7 +137,8 @@ func _on_toilet_2f_body_entered(body):
 		get_node("player/CanvasLayer/NinePatchRect").show_text("1", "toilet_not_enter")
 	else:
 		if body==get_node("player"):
-			 SceneTransition.change_scene("res://scenes/second_floor/toilet_2f.tscn")
+			get_node("player/CanvasLayer/NinePatchRect").show_text("1", "toilet_not_enter")
+#			 SceneTransition.change_scene("res://scenes/second_floor/toilet_2f.tscn")
 	pass # Replace with function body.
 
 
@@ -145,8 +147,9 @@ func _on_Jenny_room_body_entered(body):
 		if Global.progress=="find_rachel_bag":
 			get_node("player/CanvasLayer/NinePatchRect").show_text("intro_mono", "jenny_door_locked")
 		else:
-			SceneTransition.change_scene("res://scenes/second_floor/jenny_room.tscn")
-	pass # Replace with function body.
+			get_node("player/CanvasLayer/NinePatchRect").show_text("intro_mono", "jenny_door_locked")
+			#SceneTransition.change_scene("res://scenes/second_floor/jenny_room.tscn")
+			pass # Replace with function body.
 
 
 func _on_ben_room_body_entered(body):
@@ -163,19 +166,25 @@ func _on_bishop_room_body_entered(body):
 		if Global.progress=="find_rachel_bag":
 			get_node("player/CanvasLayer/NinePatchRect").show_text("intro_mono", "henry_door_locked")
 		else:
-			SceneTransition.change_scene("res://scenes/second_floor/bishop_room.tscn")
-	pass # Replace with function body.
+			get_node("player/CanvasLayer/NinePatchRect").show_text("intro_mono", "henry_door_locked")
+#			SceneTransition.change_scene("res://scenes/second_floor/bishop_room.tscn")
+			pass # Replace with function body.
 
 
 func _on_max_room_body_entered(body):
 	if body==get_node("player"):
-		SceneTransition.change_scene("res://scenes/second_floor/max_room.tscn")
+		if Global.progress=="find_rachel_bag":
+			get_node("player/CanvasLayer/NinePatchRect").show_text("intro_mono","henry_door_locked")
+		else:
+			get_node("player/CanvasLayer/NinePatchRect").show_text("intro_mono","henry_door_locked")
+			#SceneTransition.change_scene("res://scenes/second_floor/max_room.tscn")
 	pass # Replace with function body.
 
 
 func _on_game_room_body_entered(body):
 	if body==get_node("player"):
-		SceneTransition.change_scene("res://scenes/second_floor/game_room.tscn")
+		get_node("player/CanvasLayer/NinePatchRect").show_text("intro_mono", "development")
+		#SceneTransition.change_scene("res://scenes/second_floor/game_room.tscn")
 	pass # Replace with function body.
 
 

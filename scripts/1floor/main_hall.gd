@@ -8,6 +8,7 @@ var next_to_the_secret = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_node("isaac_foolow_me").position= Vector2(0,0)
 	if Global.room == "tea_room":
 		get_node("character").position = Vector2(124.431,92.735)
 	elif Global.room =="kitchen":

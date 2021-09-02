@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=3 format=2]
 
-[ext_resource path="res://textures/dialogues/JohnDialogue.png" type="Texture" id=1]
+[ext_resource path="res://textures/dialogues/johndialogue.png" type="Texture" id=1]
 [ext_resource path="res://textures/dialogues/EmilyDialogue.png" type="Texture" id=2]
 
 [resource]

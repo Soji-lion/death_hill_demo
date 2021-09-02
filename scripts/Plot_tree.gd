@@ -11,3 +11,8 @@ var test = 0
 	#test = 1000+randi()%8999 #int(round(rand_range(1000, 9999)))
 	
 	#print (test)
+
+
+######################
+# Key Plot Variables #
+######################

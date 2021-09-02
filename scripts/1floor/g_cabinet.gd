@@ -52,7 +52,8 @@ func _on_cabinet_body_entered(body):
 		pass
 	else:
 		if body==get_node("player"):
-			SceneTransition.change_scene("res://scenes/cabinet.tscn")
+			#SceneTransition.change_scene("res://scenes/cabinet.tscn")
+			pass
 #		elif body ==get_node("richard/KinematicBody2D"): just an example on how to reference other characters
 #			pass
 

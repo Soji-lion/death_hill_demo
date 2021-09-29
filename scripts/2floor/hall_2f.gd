@@ -68,9 +68,9 @@ func _process(delta):
 			get_node("actions/meet_emily/CollisionShape2D").position = Vector2(1086.286,-16.819)
 			get_node("AnimationPlayer").play("emily_meet_leave")
 		elif Global.speak =="intro, isaac_meet":
-			get_node("player/interface").visible=true
-			get_node("player/interface/TabContainer").set_tab_disabled(2,false)
-			get_node("player/interface/TabContainer").current_tab=2
+			get_node("player/Node2D/interface").visible=true
+			get_node("player/Node2D/interface/TabContainer").set_tab_disabled(2,false)
+			get_node("player/Node2D/interface/TabContainer").current_tab=2
 			get_node("player").speed=0
 			Global.speak="intro, isaac_notebook"
 			Global.in_game=false

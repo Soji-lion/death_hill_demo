@@ -261,11 +261,12 @@ shape = SubResource( 9 )
 
 [node name="emily" parent="." instance=ExtResource( 4 )]
 position = Vector2( 150.131, 113.012 )
-frame = 2
+frame = 1
 
 [node name="Isaac" parent="." instance=ExtResource( 5 )]
 position = Vector2( 150.085, 205.868 )
 animation = "move_up"
+frame = 2
 
 [node name="ColorRect3" type="ColorRect" parent="."]
 margin_left = 637.0
@@ -299,13 +300,8 @@ shape = SubResource( 10 )
 [node name="rachel" parent="." instance=ExtResource( 6 )]
 position = Vector2( 148.667, 48.1697 )
 
-[node name="Sprite2" type="Sprite" parent="."]
-material = SubResource( 11 )
-position = Vector2( 544, 285 )
-texture = ExtResource( 16 )
-
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 618.257, 122.894 )
+position = Vector2( 439.277, 547.524 )
 
 [node name="Control" parent="player" instance=ExtResource( 3 )]
 visible = false
@@ -322,6 +318,11 @@ margin_top = -147.44
 margin_right = -170.273
 margin_bottom = -107.44
 rect_scale = Vector2( 0.432936, 0.427663 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+material = SubResource( 11 )
+position = Vector2( 544, 285 )
+texture = ExtResource( 16 )
 
 [node name="third_floor" type="Area2D" parent="."]
 position = Vector2( 544, 577 )

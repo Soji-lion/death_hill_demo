@@ -28,9 +28,3 @@ func _process(delta):
 func _on_Area2D_body_entered(body):
 	if body==get_node("player"):
 		SceneTransition.change_scene("res://scenes/Main_hall.tscn")
-
-
-
-func _on_scary_body_entered(body):
-	scare.play()
-	pass # Replace with function body.

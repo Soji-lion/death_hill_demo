@@ -23,20 +23,20 @@ animations = [ {
 "name": "toilet_open",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": false,
-"name": "open_idle",
-"speed": 5.0
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "close_idle",
+"speed": 7.0
 }, {
 "frames": [  ],
 "loop": true,
 "name": "New Anim",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "close_idle",
-"speed": 7.0
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "open_idle",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://soundtracks/tense-detective-looped-drone-10054.mp3" type="AudioStream" id=1]
+[ext_resource path="res://scripts/bg_music.gd" type="Script" id=2]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+volume_db = -16.156
+script = ExtResource( 2 )

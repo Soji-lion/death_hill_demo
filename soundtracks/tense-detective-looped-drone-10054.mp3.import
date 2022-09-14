@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tense-detective-looped-drone-10054.mp3-7e44cdb547c37a0a67b4d8683e52e08a.mp3str"
+
+[deps]
+
+source_file="res://soundtracks/tense-detective-looped-drone-10054.mp3"
+dest_files=[ "res://.import/tense-detective-looped-drone-10054.mp3-7e44cdb547c37a0a67b4d8683e52e08a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

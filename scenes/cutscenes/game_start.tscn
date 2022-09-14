@@ -32,5 +32,5 @@ margin_bottom = 493.658
 [node name="mansion_placeholder_1" type="Sprite" parent="."]
 position = Vector2( 2034, -1313 )
 texture = ExtResource( 3 )
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="finished_dialog" from="CanvasLayer/NinePatchRect" to="." method="_on_NinePatchRect_finished_dialog"]

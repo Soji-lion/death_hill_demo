@@ -29,8 +29,10 @@ func _ready():
 
 
 func _on_Button_button_up():
-	answer=dig_1.text+dig_2.text+dig_3.text+dig_4.text
-	pass # Replace with function body.
+	if PlotTree.is_inv_now==true:
+		answer=dig_1.text+dig_2.text+dig_3.text+dig_4.text
+		PlotTree.bites= PlotTree.bites-1
+		pass # Replace with function body.
 
 
 func _on_arr_1_pressed():

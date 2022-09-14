@@ -162,11 +162,6 @@ position = Vector2( -777.305, -185.066 )
 position = Vector2( -2.24492, -3.64801 )
 shape = SubResource( 14 )
 
-[node name="isaac_foolow_me" type="StaticBody2D" parent="."]
-position = Vector2( -871.031, -1.12244 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="isaac_foolow_me"]
-polygon = PoolVector2Array( 183.711, -64.7685, -7.95427, -64.4536, -6.53686, -124.615, -4.01701, -124.142, -4.01701, -79.8876, 184.026, -77.9977 )
 [connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]
 [connection signal="body_entered" from="2nd_floor" to="." method="_on_2nd_floor_body_entered"]
 [connection signal="body_entered" from="kitchen_door" to="." method="_on_kitchen_door_body_entered"]

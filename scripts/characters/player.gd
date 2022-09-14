@@ -5,9 +5,7 @@ class_name Player
 export (int) var speed = 80
 
 const IDLE_SPEED = 10
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
 var RayNode
 
 var global_pos

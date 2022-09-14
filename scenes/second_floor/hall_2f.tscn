@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://scenes/characters/main_character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/JitterFreePixelArt.shader" type="Shader" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/characters/Isaac.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/characters/rachel.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/cutscenes/code_enter.tscn" type="PackedScene" id=7]
+[ext_resource path="res://textures/2floor/toilet_logo.jpg" type="Texture" id=8]
 [ext_resource path="res://textures/2floor/hall_2floor.png" type="Texture" id=13]
 [ext_resource path="res://textures/2floor/rails_06.png" type="Texture" id=15]
 [ext_resource path="res://textures/2floor/rails_03.png" type="Texture" id=16]
@@ -261,12 +262,10 @@ shape = SubResource( 9 )
 
 [node name="emily" parent="." instance=ExtResource( 4 )]
 position = Vector2( 150.131, 113.012 )
-frame = 1
 
 [node name="Isaac" parent="." instance=ExtResource( 5 )]
-position = Vector2( 150.085, 205.868 )
+position = Vector2( 148.098, 186.386 )
 animation = "move_up"
-frame = 2
 
 [node name="ColorRect3" type="ColorRect" parent="."]
 margin_left = 637.0
@@ -301,7 +300,7 @@ shape = SubResource( 10 )
 position = Vector2( 148.667, 48.1697 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 439.277, 547.524 )
+position = Vector2( 461.439, 593.255 )
 
 [node name="Control" parent="player" instance=ExtResource( 3 )]
 visible = false
@@ -321,7 +320,7 @@ rect_scale = Vector2( 0.432936, 0.427663 )
 
 [node name="Sprite2" type="Sprite" parent="."]
 material = SubResource( 11 )
-position = Vector2( 544, 285 )
+position = Vector2( 544.488, 285.014 )
 texture = ExtResource( 16 )
 
 [node name="third_floor" type="Area2D" parent="."]
@@ -357,6 +356,11 @@ polygon = PoolVector2Array( 1.78656, -1.8541, -38.0227, 64.5433, -10.1768, 0.525
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="invisible_event_walls"]
 position = Vector2( -1578.93, -384.02 )
 polygon = PoolVector2Array( -0.643921, -9.06396, -0.635651, -15.9392, 6.30487, -6.37875, 20.782, 31.7072 )
+
+[node name="toilet_logo" type="Sprite" parent="."]
+position = Vector2( 483.81, 147.118 )
+texture = ExtResource( 8 )
+
 [connection signal="body_entered" from="1f" to="." method="_on_1f_body_entered"]
 [connection signal="body_entered" from="toilet_2f" to="." method="_on_toilet_2f_body_entered"]
 [connection signal="body_entered" from="Jenny_room" to="." method="_on_Jenny_room_body_entered"]

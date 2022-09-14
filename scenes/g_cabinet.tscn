@@ -289,7 +289,7 @@ shape = SubResource( 13 )
 position = Vector2( -455.389, -221.191 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-position = Vector2( -61.6064, 57.4116 )
+position = Vector2( -68.8587, 39.5075 )
 
 [node name="TextureRect4" type="TextureRect" parent="."]
 margin_left = 137.0

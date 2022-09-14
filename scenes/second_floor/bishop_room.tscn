@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://textures/2floor/bishop's_room.png" type="Texture" id=1]
 [ext_resource path="res://scenes/characters/main_character.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scripts/2floor/bishop_room.gd" type="Script" id=3]
 [ext_resource path="res://addons/JitterFreePixelArt.shader" type="Shader" id=4]
 
 [sub_resource type="ShaderMaterial" id=1]
@@ -12,7 +11,6 @@ shader = ExtResource( 4 )
 extents = Vector2( 1.63261, 12.3234 )
 
 [node name="bishop_room" type="Node"]
-script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -949.0
@@ -43,4 +41,5 @@ position = Vector2( 181.478, 312.695 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hall"]
 position = Vector2( -8.49518, -1.56033 )
 shape = SubResource( 2 )
+
 [connection signal="body_entered" from="hall" to="." method="_on_hall_body_entered"]

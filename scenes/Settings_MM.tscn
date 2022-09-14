@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://fonts/Game_font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/Settings_MM.gd" type="Script" id=2]
@@ -21,6 +21,14 @@ size = 25
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=6]
+size = 25
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 25
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
 size = 25
 font_data = ExtResource( 1 )
 
@@ -54,12 +62,13 @@ custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/normal = SubResource( 3 )
 custom_fonts/font = SubResource( 4 )
-text = "Back to menu"
+text = "Save and return"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_left = 395.0
 margin_top = 344.0
 margin_right = 694.0
@@ -71,6 +80,7 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="."]
+visible = false
 margin_left = 91.1869
 margin_top = 71.5378
 margin_right = 184.187
@@ -90,5 +100,40 @@ text = "English"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 86.3784
+margin_top = 144.784
+margin_right = 214.378
+margin_bottom = 182.784
+custom_fonts/font = SubResource( 7 )
+text = "Music Volume:"
+
+[node name="HSlider" type="HSlider" parent="Label3"]
+margin_left = 155.0
+margin_top = -24.0
+margin_right = 401.0
+margin_bottom = 60.0
+min_value = -50.0
+max_value = 7.0
+step = 5.0
+tick_count = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckButton" type="CheckButton" parent="Label3"]
+margin_left = 424.0
+margin_top = -4.0
+margin_right = 619.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 8 )
+text = "Test volume"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="item_selected" from="Label2/OptionButton" to="." method="_on_OptionButton_item_selected"]
+[connection signal="value_changed" from="Label3/HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="toggled" from="Label3/CheckButton" to="." method="_on_CheckButton_toggled"]

@@ -8,7 +8,6 @@ var next_to_the_secret = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_node("isaac_foolow_me").position= Vector2(0,0)
 	if Global.room == "tea_room":
 		get_node("character").position = Vector2(124.431,92.735)
 	elif Global.room =="kitchen":
@@ -32,23 +31,21 @@ func _ready():
 	get_node("character").change_direction()
 	Global.room = "main_hall"
 	
-	if Global.progress=="explore_2nd_floor":
-		get_node("isaac_follow_me_speak").position= Vector2(20.766,-115.473)
-		get_node("isaac_foolow_me").position= Vector2(0,0)
-		
 
-
-func _process(delta):
-	if Input.is_action_just_pressed("action")&&next_to_the_secret==true:
-		SceneTransition.change_scene("res://scenes/main_secret.tscn")
+#func _process(delta):
+	#if Input.is_action_just_pressed("action")&&next_to_the_secret==true:
+	#	SceneTransition.change_scene("res://scenes/main_secret.tscn")
 	
 	
 
 func _on_exit_body_entered(body):
-	if ("1name1" in b):
-		b.replace("1name1",Global.char_name)
+#	if ("1name1" in b):
+#		b.replace("1name1",Global.char_name)
 	if body==get_node("character"):
-		SceneTransition.change_scene("res://scenes/Main_menu.tscn")
+		if Global.progress=="refused_to_work":
+			Global.restart_count+=1
+			Global.speak="start_wakeup_repeat"
+			SceneTransition.change_scene("res://scenes/second_floor/ben_room.tscn")
 
 
 

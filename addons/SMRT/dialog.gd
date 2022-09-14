@@ -359,16 +359,21 @@ func show_text(chapter, dialog, start_at = 0):
 			face.visible = false
 			#left side image
 		elif side == 1:
-			textObj.margin_right =  texture_width + texture_width/3
+			textObj.margin_right =  dimensions.text_margin.left
 			textObj.margin_left = dimensions.text_margin.right
-			face.position = Vector2(texture_width/20-90,face_v_pos*1.1)
+			textObj.margin_top = dimensions.text_margin.top
+			textObj.margin_bottom = dimensions.text_margin.bottom
+			face.position = Vector2(texture_width/15-80,face_v_pos*1.3)
 			face.flip_h  = false
 			face.visible = true 
 		elif side == 2:
-			textObj.margin_left = dimensions.text_margin.left
-			textObj.margin_right = texture_width + texture_width/3
-			face.position = Vector2(rect_size.x-texture_width/5,face_v_pos*1.1)
-			face.flip_h = false
+			textObj.margin_left =  dimensions.text_margin.left
+			textObj.margin_top = dimensions.text_margin.top
+			textObj.margin_right = dimensions.text_margin.right
+			textObj.margin_bottom = dimensions.text_margin.bottom
+			face.position = Vector2(rect_size.x-texture_width/5,face_v_pos*1.3)
+			face.flip_h = true
+			face.visible=true
 		while textObj.get_total_character_count() > textObj.get_visible_characters():
 			if not typewriter:
 				textObj.set_visible_characters(textObj.get_total_character_count())
@@ -478,6 +483,7 @@ func answer_response(ans_id):
 	elif (res.find("pass")!=-1):
 		pass
 	else:
+		Global.speak=res
 		show_text(chapter_for_options,res)
 	pass
 

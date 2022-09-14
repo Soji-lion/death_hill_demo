@@ -1,12 +1,14 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=2]
+[gd_resource type="SpriteFrames" load_steps=5 format=2]
 
 [ext_resource path="res://textures/dialogues/johndialogue.png" type="Texture" id=1]
 [ext_resource path="res://textures/dialogues/EmilyDialogue.png" type="Texture" id=2]
+[ext_resource path="res://textures/dialogues/RichardDialogue.png" type="Texture" id=3]
+[ext_resource path="res://textures/dialogues/IsaacDialogue.png" type="Texture" id=4]
 
 [resource]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
-"loop": true,
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": false,
 "name": "faces",
 "speed": 5.0
 } ]

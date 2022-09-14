@@ -17,6 +17,12 @@ func _ready():
 
 
 func _on_event_body_entered(body):
-	if body is Player:
-		if Global.room == "hall2f" && Global.progress == "met_emily":
-			Global.speak="isaac_meet"
+	print (body)
+	if body==get_tree().get_root().find_node("player",true,false):
+	#get_node("player"):
+		Global.whom_to_speak="Isaac"
+
+func _on_event_body_exited(body):
+	if body==get_tree().get_root().find_node("player",true,false):
+		Global.whom_to_speak=""
+	pass # Replace with function body.

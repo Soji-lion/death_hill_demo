@@ -26,11 +26,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 28.0
 
+[node name="Label" type="Label" parent="TabContainer/stats"]
+margin_left = 164.668
+margin_top = 88.9452
+margin_right = 306.668
+margin_bottom = 154.945
+text = "Coming Soon"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="items" type="Tabs" parent="TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 28.0
+
+[node name="Label" type="Label" parent="TabContainer/items"]
+margin_left = 164.668
+margin_top = 88.9452
+margin_right = 306.668
+margin_bottom = 154.945
+text = "Coming Soon"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="notes" type="Tabs" parent="TabContainer"]
 visible = false
@@ -53,3 +73,13 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 28.0
+
+[node name="Label" type="Label" parent="TabContainer/options"]
+margin_left = 164.668
+margin_top = 88.9452
+margin_right = 306.668
+margin_bottom = 154.945
+text = "Coming Soon"
+__meta__ = {
+"_edit_use_anchors_": false
+}

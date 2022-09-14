@@ -16,34 +16,9 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 8 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "move_left",
-"speed": 4.0
-}, {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "move_down",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "idle_right",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "idle_left",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "move_up",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "idle_down",
 "speed": 4.0
 }, {
 "frames": [ ExtResource( 11 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 12 ) ],
@@ -51,14 +26,39 @@ animations = [ {
 "name": "move_right",
 "speed": 4.0
 }, {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "move_up",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "idle_left",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "idle_down",
+"speed": 4.0
+}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "idle_up",
 "speed": 4.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "idle_right",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "move_left",
+"speed": 4.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8.09505, 7.31509 )
+extents = Vector2( 8.09505, 13.2998 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 6.04768, 12.0398 )
@@ -74,7 +74,7 @@ script = ExtResource( 13 )
 [node name="event" type="Area2D" parent="."]
 
 [node name="event_area" type="CollisionShape2D" parent="event"]
-position = Vector2( 0.472473, 6.77208 )
+position = Vector2( 0.174835, -0.272012 )
 shape = SubResource( 2 )
 
 [node name="border" type="KinematicBody2D" parent="."]
@@ -82,4 +82,6 @@ shape = SubResource( 2 )
 [node name="border_area" type="CollisionShape2D" parent="border"]
 position = Vector2( 0, -0.944939 )
 shape = SubResource( 3 )
+
 [connection signal="body_entered" from="event" to="." method="_on_event_body_entered"]
+[connection signal="body_exited" from="event" to="." method="_on_event_body_exited"]

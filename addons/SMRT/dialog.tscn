@@ -63,8 +63,8 @@ margin_top = 0.984253
 margin_right = 172.112
 margin_bottom = 48.9843
 bbcode_enabled = true
-bbcode_text = "кккк"
-text = "кккк"
+bbcode_text = "????"
+text = "????"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -94,9 +94,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 29.0
 margin_top = 8.0
-margin_right = 21.0
 theme = SubResource( 2 )
-bbcode_enabled = true
 bbcode_text = "HELLO THERE CHILDREN! How are you doing?"
 text = "HELLO THERE CHILDREN! How are you doing?"
 __meta__ = {

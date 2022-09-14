@@ -11,6 +11,7 @@ func _ready():
 	var file_path = "user://save2.dat"
 	load_languages()
 	SaveLoad.load_settings(file_path)
+	get_node("Label3/HSlider").value=BgMusic.get_volume()
 	if Global.language == "res://dialogues/english.lan":
 		lang.select(0)
 		pass
@@ -60,4 +61,17 @@ func _on_OptionButton_item_selected(index):
 		Global.reset_dialog=true
 		SaveLoad.save_settings()
 		
+	pass # Replace with function body.
+
+
+func _on_HSlider_value_changed(value):
+	BgMusic.change_volume(value)
+	pass # Replace with function body.
+
+
+func _on_CheckButton_toggled(button_pressed):
+	if button_pressed:
+		BgMusic.play_bg()
+	else:
+		BgMusic.pause_bg()
 	pass # Replace with function body.

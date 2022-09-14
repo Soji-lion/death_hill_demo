@@ -39,8 +39,7 @@ margin_top = 30.1995
 margin_right = 496.427
 margin_bottom = 81.1995
 custom_fonts/font = SubResource( 1 )
-text = "What will be your name?
-Как вас будут звать?"
+text = "What will be your name?"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -65,4 +64,5 @@ text = "Save name"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="ColorRect/Button" to="." method="_on_Button_pressed"]

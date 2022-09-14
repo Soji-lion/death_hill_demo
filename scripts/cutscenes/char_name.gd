@@ -17,5 +17,6 @@ func _ready():
 func _on_Button_pressed():
 	var ch_name = get_node("ColorRect/name").text
 	Global.char_name = ch_name
+	
 	#emit_signal("name_saved")
 	pass # Replace with function body.

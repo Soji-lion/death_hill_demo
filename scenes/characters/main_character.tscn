@@ -28,9 +28,24 @@ shader = ExtResource( 14 )
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "idle_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 4 ), ExtResource( 13 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "walk_up",
+"speed": 4.0
+}, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "walk_right",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "walk_down",
 "speed": 4.0
 }, {
 "frames": [ ExtResource( 8 ) ],
@@ -43,11 +58,6 @@ animations = [ {
 "name": "idle_down",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 4 ), ExtResource( 13 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "walk_up",
-"speed": 4.0
-}, {
 "frames": [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "walk_left",
@@ -57,16 +67,6 @@ animations = [ {
 "loop": true,
 "name": "idle_left",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "idle_up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 1 ) ],
-"loop": true,
-"name": "walk_down",
-"speed": 4.0
 } ]
 
 [node name="player" type="KinematicBody2D"]
@@ -122,5 +122,6 @@ margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="finished_dialog" from="CanvasLayer/NinePatchRect" to="." method="_on_NinePatchRect_finished_dialog"]
 [connection signal="started" from="CanvasLayer/NinePatchRect" to="." method="_on_NinePatchRect_started"]

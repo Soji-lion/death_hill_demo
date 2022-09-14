@@ -47,12 +47,13 @@ func _process(delta):
 
 func save_settings():
 	var content = {
-	"language":Global.language
+	"language":Global.language,
+	"volume": BgMusic.get_volume()
 		}
 	var file = File.new()
 	var error = file.open(game_settings, File.WRITE)
 	if error == OK:
-		file.store_var(Global.language)
+		file.store_var(Global.language, BgMusic.get_volume())
 		
 		file.close()
 
@@ -90,6 +91,7 @@ func load_settings(set_path):
 		var error = file.open(set_path, File.READ)
 		if error == OK:
 			Global.language = file.get_var()
+			BgMusic.change_volume(file.get_var())
 			file.close()
 		
 		

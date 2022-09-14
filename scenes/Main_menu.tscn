@@ -111,6 +111,25 @@ text = "Continue"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label" type="Label" parent="."]
+margin_left = 599.343
+margin_top = 25.362
+margin_right = 639.343
+margin_bottom = 39.362
+text = "Demo"
+
+[node name="despair_end" type="Label" parent="."]
+margin_left = 786.221
+margin_top = 60.0678
+margin_right = 947.221
+margin_bottom = 74.0678
+text = "Despair ending complete"
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="new_game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
